@@ -1,7 +1,7 @@
 {
     "2093823215": {
-        "Bbalance": 0.0020249999999503165,
-        "Rbalance": 1705684.2,
+        "Bbalance": 22.89242899999971,
+        "Rbalance": 125722.19999999925,
         "miners": {
             "Antminer S9 13.5Th PC": {
                 "pow": 0.0005,
@@ -25,7 +25,7 @@
             },
             "Canaan Avalon 1047": {
                 "pow": 0.001663,
-                "count": 5
+                "count": 23
             },
             "Antminer T9+": {
                 "pow": 0.000449,
@@ -33,7 +33,7 @@
             },
             "GOD MINER 777": {
                 "pow": 0.114772,
-                "count": 2
+                "count": 8
             }
         },
         "clan": null,

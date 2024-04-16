@@ -15,7 +15,12 @@ from tg_bot.handlers import (check_miner_info,
                              trade_button, 
                              cancel_button, 
                              trade_coins, 
-                             Trade)
+                             Trade,
+                             all_user_miners,
+                             all_user_prefixes,
+                             change_prefix,
+                             miner_info,
+                             go_back)
 
 from tg_bot.admin_commands import (admin_panel,
                                     update_shop_admin,
@@ -79,13 +84,28 @@ async def main():
     dp.callback_query.register(check_miner_info, F.data.startswith('_'), CheckUser())
 
     # Обработчик нажатия на кнопку "Купить"
-    dp.callback_query.register(buy_miner, F.data.startswith('b'), CheckUser())
+    dp.callback_query.register(buy_miner, F.data.startswith('b_'), CheckUser())
 
     # Обработчик нажатия на кнопку "Обменять"
     dp.callback_query.register(trade_button, F.data == "p2p", CheckUser())
 
+    # Кнопка отмены
     dp.callback_query.register(cancel_button, F.data == "cancel", CheckUser())
 
+    # Обработчик нажатия на кнопку "мои майнеры"
+    dp.callback_query.register(all_user_miners, F.data == "all_miners", CheckUser())
+
+    # Обработчик нажатия на кнопку "мои префиксы"
+    dp.callback_query.register(all_user_prefixes, F.data == "all_prefixes", CheckUser())
+
+    # Обработчик нажатия на кнопку "изменить префикс"
+    dp.callback_query.register(change_prefix, F.data.startswith('PR_'), CheckUser())
+
+    # Обработчик нажатия на кнопку "информация о майнере"
+    dp.callback_query.register(miner_info, F.data.startswith('MI_'), CheckUser())
+
+    # Кнопка Назад
+    dp.callback_query.register(go_back, F.data.startswith('back_'), CheckUser())
 
 
     # ---------------------------------- #

@@ -30,7 +30,7 @@ async def start_command(message: types.Message):
 
 """
     if message.chat.type == "private":
-        await message.answer(text + "\n\n👇 Для продолжения нажми на одну из кнопок ", reply_markup=types.ReplyKeyboardMarkup(keyboard=main_btn.append(), resize_keyboard=True))
+        await message.reply(text + "\n\n👇 Для продолжения нажми на одну из кнопок ", reply_markup=types.ReplyKeyboardMarkup(keyboard=main_btn, resize_keyboard=True))
     else:
         await message.reply(text + "\n\n👇 Для продолжения нажми на одну из команд или введи ее вручную")
 
@@ -41,11 +41,8 @@ async def start_command(message: types.Message):
 async def profile_command(message: types.Message):
     key = InlineKeyboardBuilder()
 
-    key.button(text="⚙️ Настройки", callback_data="settings")
-    key.button(text='🎟 Промокоды', callback_data='promocodes')
-
-
-
+    key.button(text='🔋 Мои машины', callback_data='all_miners')
+    key.button(text='⭐️ Мои префиксы', callback_data='all_prefixes')
 
     data.check_user(message.from_user.id)
     Rbalance = read_file('data/users.json')[str(message.from_user.id)]['Rbalance']
@@ -70,11 +67,7 @@ async def profile_command(message: types.Message):
 💪 Мощность фермы: {round(money_per_15_min, 8)} BC/15 мин. (Кол-во машин: {count})
 ➖➖➖➖➖➖➖➖➖➖➖
 """
-    if message.chat.type == "private":
-        await message.answer(text, reply_markup=types.ReplyKeyboardMarkup(keyboard=main_btn, resize_keyboard=True))
-    else:
-        await message.reply(text)
-
+    await message.reply(text, reply_markup=key.as_markup())
 
 
     

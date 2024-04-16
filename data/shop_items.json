@@ -1,4 +1,8 @@
 {   
+    "Antminer S9 13.5Th PC": {
+        "pow": 0.0005,
+        "price": 10000
+    },
 
     "Antminer S9j 14Th": {
         "pow": 0.000629,
