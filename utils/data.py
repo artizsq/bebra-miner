@@ -1,4 +1,5 @@
-import json 
+import json
+from utils.parsing import Data
 
 def read_file(file_name):
     try:
@@ -20,6 +21,7 @@ def check_user(user_id):
         data[str(user_id)] = {
             'Bbalance': 0,
             'Rbalance': 0,
+            'ban': False,
             'miners': {
                 "Antminer S9 13.5Th PC": {
                     "pow": 0.0005,
@@ -42,15 +44,27 @@ def add_bebra_coins(user_id, amount):
 
 def add_miners(user_id, miner):
     data = read_file('data/users.json')
-    m_data = read_file('data/shop_items.json')
-    if miner not in data[str(user_id)]['miners']:
-        data[str(user_id)]['miners'][miner] = {
-            'pow': m_data[miner]['pow'],
-            'count': 1
-        }
-    else:
-        data[str(user_id)]['miners'][miner]['count'] += 1
-    save_file('data/users.json', data)
+    try:
+        m_data = read_file('data/shop_items.json')
+        if miner not in data[str(user_id)]['miners']:
+            data[str(user_id)]['miners'][miner] = {
+                'pow': m_data[miner]['pow'],
+                'count': 1
+            }
+        else:
+            data[str(user_id)]['miners'][miner]['count'] += 1
+        save_file('data/users.json', data)
+    except KeyError:
+        config_data = Data()
+        m_data = read_file(f'data/{config_data.event_name}/event_miners.json')
+        if miner not in data[str(user_id)]['miners']:
+            data[str(user_id)]['miners'][miner] = {
+                'pow': m_data[miner]['pow'],
+                'count': 1
+            }
+        else:
+            data[str(user_id)]['miners'][miner]['count'] += 1
+        save_file('data/users.json', data)
 
 
 def add_thousands_separator(number):

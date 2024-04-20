@@ -1,14 +1,15 @@
 from aiogram import Bot, Dispatcher, F, filters, types
 import asyncio
 from utils.parsing import Data
-from tg_bot.exceptions import IsAdmin, CheckUser
+from tg_bot.exceptions import IsAdmin, CheckUser, CheckIvent, IventShopChecker
 from tg_bot.commands import (start_command, 
                              profile_command, 
                              delete_panel, 
                              farm_command,
                              shop_command,
                              trade_command,
-                             help_command)
+                             help_command,
+                             ivent_command)
 
 from tg_bot.handlers import (check_miner_info, 
                              buy_miner, 
@@ -20,14 +21,17 @@ from tg_bot.handlers import (check_miner_info,
                              all_user_prefixes,
                              change_prefix,
                              miner_info,
-                             go_back)
+                             go_back, buy_event_miner)
 
 from tg_bot.admin_commands import (admin_panel,
                                     update_shop_admin,
-                                    send_BD)
+                                    send_BD, Admin, 
+                                    add_or_sub_balance, add_balance, 
+                                    sub_balance, ban_user, ban_user_action, 
+                                    actions_with_balance, update_rate_button)
 import logging
 from tg_bot.middlewares import SchedulerMiddleware
-from tg_bot.events import update_current_shop, update_rate
+from tg_bot.events import update_current_shop, update_rate, update_event
 from datetime import datetime, timedelta
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
@@ -43,7 +47,8 @@ async def main():
     dp = Dispatcher()
     scheduler = AsyncIOScheduler(timezone="Europe/Moscow")
     scheduler.add_job(update_current_shop, trigger='cron', hour=21, minute=0, start_date=datetime.now(), kwargs={'bot': bot})
-    scheduler.add_job(update_rate, trigger='interval', hours=1, start_date=datetime.now(), kwargs={'bot': bot})
+    scheduler.add_job(update_rate, trigger='interval', minutes=15, start_date=datetime.now(), kwargs={'bot': bot})
+    scheduler.add_job(update_event, trigger='interval', hours=12, start_date=datetime.now(), kwargs={'bot': bot})
 
     
     # dp.message.register(i_dont_know, filters.Command('help'))
@@ -71,7 +76,8 @@ async def main():
     dp.message.register(help_command, filters.Command("help"))
 
     # Обработчик команды /event
-    # dp.message.register(help_command, filters.Command("event"))
+    dp.message.register(ivent_command, F.text == "⌛️ Ивент", CheckIvent())
+    dp.message.register(ivent_command, filters.Command("event"), CheckIvent())
 
 
     dp.message.register(trade_coins, Trade.coins)
@@ -82,6 +88,9 @@ async def main():
 
     # Обработчик нажатия на кнопку магазина (выбран предмет покупки)
     dp.callback_query.register(check_miner_info, F.data.startswith('_'), CheckUser())
+
+    # Обработчик нажатия на кнопку "Купить майнер" при ивенте
+    dp.callback_query.register(buy_event_miner, F.data.startswith('ev_'), CheckUser(), IventShopChecker())
 
     # Обработчик нажатия на кнопку "Купить"
     dp.callback_query.register(buy_miner, F.data.startswith('b_'), CheckUser())
@@ -113,7 +122,15 @@ async def main():
     dp.message.register(admin_panel, filters.Command("panel"), IsAdmin())
 
     dp.callback_query.register(send_BD, F.data == "upload", IsAdmin())
+    dp.callback_query.register(add_balance, F.data == "add_balance", IsAdmin())
+    dp.callback_query.register(sub_balance, F.data == "sub_balance", IsAdmin())
+    dp.callback_query.register(ban_user, F.data == "ban", IsAdmin())
+    dp.message.register(actions_with_balance, Admin.user_id, IsAdmin())
+    dp.message.register(add_or_sub_balance, Admin.balance, IsAdmin())
+    dp.message.register(ban_user_action, Admin.user_id, IsAdmin())
     dp.callback_query.register(update_shop_admin, F.data == "update_shop", IsAdmin())
+    dp.callback_query.register(update_rate_button, F.data == "rate", IsAdmin())
+
 
     
 

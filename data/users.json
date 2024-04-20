@@ -1,7 +1,7 @@
 {
     "2093823215": {
-        "Bbalance": 22.89242899999971,
-        "Rbalance": 125722.19999999925,
+        "Bbalance": 229.88539899999475,
+        "Rbalance": 41364065.2,
         "miners": {
             "Antminer S9 13.5Th PC": {
                 "pow": 0.0005,
@@ -231,6 +231,51 @@
     "831136299": {
         "Bbalance": 0.03250000000000002,
         "Rbalance": 0,
+        "miners": {
+            "Antminer S9 13.5Th PC": {
+                "pow": 0.0005,
+                "count": 1
+            }
+        },
+        "clan": null,
+        "user_prefix": "Бета-тестер",
+        "prefix": [
+            "Бета-тестер"
+        ]
+    },
+    "1079719858": {
+        "Bbalance": 0.20650000000000016,
+        "Rbalance": 0,
+        "miners": {
+            "Antminer S9 13.5Th PC": {
+                "pow": 0.0005,
+                "count": 1
+            }
+        },
+        "clan": null,
+        "user_prefix": "Бета-тестер",
+        "prefix": [
+            "Бета-тестер"
+        ]
+    },
+    "1115321648": {
+        "Bbalance": 0,
+        "Rbalance": 0,
+        "miners": {
+            "Antminer S9 13.5Th PC": {
+                "pow": 0.0005,
+                "count": 1
+            }
+        },
+        "clan": null,
+        "user_prefix": "Бета-тестер",
+        "prefix": [
+            "Бета-тестер"
+        ]
+    },
+    "5106379352": {
+        "Bbalance": 0.0030000000000000695,
+        "Rbalance": 9643.74,
         "miners": {
             "Antminer S9 13.5Th PC": {
                 "pow": 0.0005,

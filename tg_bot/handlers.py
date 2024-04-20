@@ -32,7 +32,7 @@ async def buy_miner(callback_query: types.CallbackQuery):
     miner = callback_query.data.split('b_')[1]
 
     if user_data[str(callback_query.from_user.id)]['Rbalance'] < miner_data[miner]['price']:
-        await callback_query.answer("Недостаточно средств на балансе!\nВам не хватает " + str(add_thousands_separator(miner_data[miner]['price'] - user_data[str(callback_query.from_user.id)]['Rbalance'])) + " руб")
+        await callback_query.answer("Недостаточно средств на балансе!\nВам не хватает " + str(add_thousands_separator(round(miner_data[miner]['price'] - user_data[str(callback_query.from_user.id)]['Rbalance'], 8))) + " руб")
     else:
         user_data[str(callback_query.from_user.id)]['Rbalance'] -= miner_data[miner]['price']
         save_file('data/users.json', user_data)
@@ -77,6 +77,22 @@ async def trade_coins(message: types.Message, state: FSMContext):
                 await state.clear()
     else:
         await message.reply("Пожалуйста, введите корректное число.", reply_markup=key.as_markup())
+
+
+async def buy_event_miner(callback_query: types.CallbackQuery):
+    data = Data()
+    miner_data = read_file(f'data/{data.event_name}/event_miners.json')
+    user_data = read_file(f'data/users.json')
+    miner = callback_query.data.split('ev_')[1]
+
+    if user_data[str(callback_query.from_user.id)]['Rbalance'] < miner_data[miner]['price']:
+        await callback_query.answer("Недостаточно средств на балансе!\nВам не хватает " + str(add_thousands_separator(round(miner_data[miner]['price'] - user_data[str(callback_query.from_user.id)]['Rbalance'], 8))) + " руб")
+    else:
+        user_data[str(callback_query.from_user.id)]['Rbalance'] -= miner_data[miner]['price']
+        save_file('data/users.json', user_data)
+        add_miners(callback_query.from_user.id, miner)
+        await callback_query.answer("Вы купили " + miner + " за " + str(add_thousands_separator(miner_data[miner]['price'])) + " b-cash!\nК вашему текущему фарму прибавилось +" + str(miner_data[miner]['pow']))
+
             
 
 async def cancel_button(callback_query: types.CallbackQuery, state: FSMContext):

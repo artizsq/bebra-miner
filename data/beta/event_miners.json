@@ -1,0 +1,55 @@
+{ 
+
+    "BETA Miner T5": {
+        "pow": 0.000555,
+        "price": 8633
+    },
+    "BETA Miner T6": {
+        "pow": 0.005555,
+        "price": 86411
+    },
+    "BETA Miner T7": {
+        "pow": 0.015555,
+        "price": 241966
+    },
+    "BETA Miner T7+": {
+        "pow": 0.115555,
+        "price": 1797522
+    },
+
+
+    "BETA Doxy T9": {
+        "pow": 0.000015,
+        "price": 233
+    },
+    "BETA Pashale X": {
+        "pow": 0.000055,
+        "price": 855
+    },
+    "BETA Rigeon": {
+        "pow": 0.000095,
+        "price": 1477
+    },
+    "BETA FoxFire P+": {
+        "pow": 0.000125,
+        "price": 1944
+    },
+    "BETA EX78": {
+        "pow": 0.000235,
+        "price": 3255
+    },
+
+
+    "404": {
+        "pow": 0.007123,
+        "price": 110802
+    },
+    "BETA ERROR": {
+        "pow": 0.011111,
+        "price": 172837
+    },
+    "BETA ERRORS 404": {
+        "pow": 0.114772,
+        "price": 1785342
+    }
+}

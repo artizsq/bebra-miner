@@ -5,15 +5,14 @@ from utils.data import read_file
 from datetime import datetime, timedelta
 from utils.data import add_thousands_separator
 from tg_bot.events import get_bebra_coins
+import matplotlib.pyplot as plt
+
 from utils.parsing import Data
-from tg_bot.key import shop_btn
+from tg_bot.key import shop_btn, main_btn, ivent_shop
+
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
-main_btn = [
-        [types.KeyboardButton(text="📈 Ферма"), types.KeyboardButton(text="👤 Профиль")],
-        [types.KeyboardButton(text="🔁 Обменник"), types.KeyboardButton(text="🛒 Магазин")],
-        [types.KeyboardButton(text="🆘 Помощь")]
-    ]
+
 
 async def start_command(message: types.Message):
     data.check_user(message.from_user.id)
@@ -30,7 +29,7 @@ async def start_command(message: types.Message):
 
 """
     if message.chat.type == "private":
-        await message.reply(text + "\n\n👇 Для продолжения нажми на одну из кнопок ", reply_markup=types.ReplyKeyboardMarkup(keyboard=main_btn, resize_keyboard=True))
+        await message.reply(text + "\n\n👇 Для продолжения нажми на одну из кнопок ", reply_markup=main_btn())
     else:
         await message.reply(text + "\n\n👇 Для продолжения нажми на одну из команд или введи ее вручную")
 
@@ -101,12 +100,18 @@ async def shop_command(message: types.Message):
 
 
 
-async def trade_command(message: types.Message):
+async def trade_command(message: types.Message, bot: Bot):
     data.check_user(message.from_user.id)
     key = InlineKeyboardBuilder()
+    rate_data = read_file('data/rate_info.json')
     key.button(text='Обменять', callback_data='p2p')
-    await message.reply(f"Здесь можно обменять свои BebraCoin'ы на b-cash.\n\nКурс на данный момент:\n1 BebraCoin = {add_thousands_separator(Data().rate)} b-cash.", reply_markup=key.as_markup())
+    image = types.FSInputFile(path='data/graph.png')
+    await bot.send_photo(chat_id=message.from_user.id, photo=image, caption=f"Здесь можно обменять свои BebraCoin'ы на b-cash.\n\nКурс на данный момент:\n1 BebraCoin = {add_thousands_separator(Data().rate)} b-cash.", reply_markup=key.as_markup())
 
 
 async def help_command(message: types.Message):
     await message.reply("Появились вопросы/Нужна помощь?\n\nНапиши @ArtizSQ\nКанал: @bebra_miner_news")
+
+
+async def ivent_command(message: types.Message):
+    await message.reply("Ивентовый магазин со своими уникальными товарами\n\nОбновление магазина происходит каждые 12 часов\n", reply_markup=ivent_shop())
