@@ -106,7 +106,9 @@ async def trade_command(message: types.Message, bot: Bot):
     rate_data = read_file('data/rate_info.json')
     key.button(text='Обменять', callback_data='p2p')
     image = types.FSInputFile(path='data/graph.png')
-    await bot.send_photo(chat_id=message.from_user.id, photo=image, caption=f"Здесь можно обменять свои BebraCoin'ы на b-cash.\n\nКурс на данный момент:\n1 BebraCoin = {add_thousands_separator(Data().rate)} b-cash.", reply_markup=key.as_markup())
+
+    await bot.send_photo(chat_id=message.from_user.id, photo=image) 
+    await message.reply(f"Здесь можно обменять свои BebraCoin'ы на b-cash.\n\nКурс на данный момент:\n1 BebraCoin = {add_thousands_separator(Data().rate)} b-cash.", reply_markup=key.as_markup())
 
 
 async def help_command(message: types.Message):
