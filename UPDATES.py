@@ -1,37 +1,20 @@
-# import matplotlib.pyplot as plt
 from utils.data import read_file, save_file
 
-# data = read_file('data/rate_info.json')
-# rate = []
-# for key in data:
-#     rate.append(int(key))
-#     print(key)
-# plt.plot(rate)
-# plt.show()
 
-import matplotlib.pyplot as plt
-import numpy as np
+data = read_file('data/rate_info.json') 
 
-# # Сгенерируем данные (предположим, что data содержит список значений)
-# data = read_file('data/rateinfo.json')
-# nums = [10, 20, 30, 40, 50]
+# 1. С помощью цикла for и условия if:
+filtered_data = []
+for value in data:
+    if value >= 0:
+        filtered_data.append(value)
 
-# plt.figure(figsize=(8, 5))
-# plt.plot(data, nums)
+# 2. С помощью list comprehension:
+filtered_data = [value for value in data if value >= 0]
 
-# plt.xlabel('Позиция элемента')
-# plt.ylabel('Значение')
-# plt.title('График позиции элементов')
+# 3. С помощью filter():
+filtered_data = list(filter(lambda x: x >= 0, data))
 
-# plt.grid(True)
-# plt.show()
-while True:
-    nums = input()
-    if nums == "0":
-        break
-    print(nums.split()[3])
-    data = read_file('data/rate_info.json')
-    data.append(int(nums.split()[3]))
-    save_file('data/rate_info.json', data)
-
-
+# Вывод отфильтрованных данных
+print(filtered_data)
+save_file('data/rate_info.json', filtered_data)

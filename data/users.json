@@ -1,7 +1,7 @@
 {
     "2093823215": {
-        "Bbalance": 229.88539899999475,
-        "Rbalance": 41364065.2,
+        "Bbalance": 2546.3004739999988,
+        "Rbalance": 99940049670.808,
         "miners": {
             "Antminer S9 13.5Th PC": {
                 "pow": 0.0005,
@@ -33,7 +33,19 @@
             },
             "GOD MINER 777": {
                 "pow": 0.114772,
-                "count": 8
+                "count": 88
+            },
+            "404": {
+                "pow": 0.007123,
+                "count": 3
+            },
+            "BETA Miner T7+": {
+                "pow": 0.115555,
+                "count": 3
+            },
+            "BETA FoxFire P+": {
+                "pow": 0.000125,
+                "count": 2
             }
         },
         "clan": null,
@@ -123,8 +135,8 @@
         ]
     },
     "948900087": {
-        "Bbalance": 5.5,
-        "Rbalance": 427651.4426,
+        "Bbalance": 0.03818199999998573,
+        "Rbalance": 367621.24259999394,
         "miners": {
             "Antminer S9 13.5Th PC": {
                 "pow": 0.0005,
@@ -145,6 +157,18 @@
             "Antminer T9 11.5Th": {
                 "pow": 0.000517,
                 "count": 2
+            },
+            "Whatsminer D1": {
+                "pow": 0.007123,
+                "count": 11
+            },
+            "GOD MINER 777": {
+                "pow": 0.114772,
+                "count": 40
+            },
+            "BETA Miner T7+": {
+                "pow": 0.115555,
+                "count": 1
             }
         },
         "clan": null,
@@ -214,7 +238,7 @@
         ]
     },
     "1009033389": {
-        "Bbalance": 0.12600000000000008,
+        "Bbalance": 0.1500000000000001,
         "Rbalance": 0,
         "miners": {
             "Antminer S9 13.5Th PC": {
@@ -229,8 +253,8 @@
         ]
     },
     "831136299": {
-        "Bbalance": 0.03250000000000002,
-        "Rbalance": 0,
+        "Bbalance": 0.03800000000000005,
+        "Rbalance": -99.78,
         "miners": {
             "Antminer S9 13.5Th PC": {
                 "pow": 0.0005,
@@ -244,11 +268,19 @@
         ]
     },
     "1079719858": {
-        "Bbalance": 0.20650000000000016,
-        "Rbalance": 0,
+        "Bbalance": 0.36582200000000087,
+        "Rbalance": 3035.142,
         "miners": {
             "Antminer S9 13.5Th PC": {
                 "pow": 0.0005,
+                "count": 1
+            },
+            "Antminer T9 11.5Th": {
+                "pow": 0.001311,
+                "count": 1
+            },
+            "BETA FoxFire P+": {
+                "pow": 0.000125,
                 "count": 1
             }
         },
@@ -274,11 +306,31 @@
         ]
     },
     "5106379352": {
-        "Bbalance": 0.0030000000000000695,
-        "Rbalance": 9643.74,
+        "Bbalance": 10.228914999999873,
+        "Rbalance": 536879.704783,
         "miners": {
             "Antminer S9 13.5Th PC": {
                 "pow": 0.0005,
+                "count": 1
+            },
+            "BETA EX78": {
+                "pow": 0.000235,
+                "count": 3
+            },
+            "Canaan Avalon 921": {
+                "pow": 0.000999,
+                "count": 3
+            },
+            "404": {
+                "pow": 0.007123,
+                "count": 7
+            },
+            "BETA Miner T7+": {
+                "pow": 0.115555,
+                "count": 1
+            },
+            "GOD MINER 777": {
+                "pow": 0.114772,
                 "count": 1
             }
         },

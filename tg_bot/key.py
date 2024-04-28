@@ -31,11 +31,11 @@ def ivent_shop():
     item3 = current_shop[2]
     item4 = current_shop[3]
     item5 = current_shop[4]
-    kb.button(text=item1 + " | " + add_thousands_separator(shop_data[item1]['price']) + " b-cash", callback_data=f"ev_{item1}")
-    kb.button(text=item2 + " | " + add_thousands_separator(shop_data[item2]['price']) + " b-cash", callback_data=f"ev_{item2}")
-    kb.button(text=item3 + " | " + add_thousands_separator(shop_data[item3]['price']) + " b-cash", callback_data=f"ev_{item3}")
-    kb.button(text=item4 + " | " + add_thousands_separator(shop_data[item4]['price']) + " b-cash", callback_data=f"ev_{item4}")
-    kb.button(text=item5 + " | " + add_thousands_separator(shop_data[item5]['price']) + " b-cash", callback_data=f"ev_{item5}")
+    kb.button(text=item1 + " | " + add_thousands_separator(shop_data[item1]['price']) + " b-cash", callback_data=f"event_shop_{item1}")
+    kb.button(text=item2 + " | " + add_thousands_separator(shop_data[item2]['price']) + " b-cash", callback_data=f"event_shop_{item2}")
+    kb.button(text=item3 + " | " + add_thousands_separator(shop_data[item3]['price']) + " b-cash", callback_data=f"event_shop_{item3}")
+    kb.button(text=item4 + " | " + add_thousands_separator(shop_data[item4]['price']) + " b-cash", callback_data=f"event_shop_{item4}")
+    kb.button(text=item5 + " | " + add_thousands_separator(shop_data[item5]['price']) + " b-cash", callback_data=f"event_shop_{item5}")
     kb.adjust(1)
     return kb.as_markup()
 

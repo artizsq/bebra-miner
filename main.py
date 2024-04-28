@@ -3,7 +3,6 @@ import asyncio
 from utils.parsing import Data
 from tg_bot.exceptions import IsAdmin, CheckUser, CheckIvent, IventShopChecker
 from tg_bot.commands import (start_command, 
-                             profile_command, 
                              delete_panel, 
                              farm_command,
                              shop_command,
@@ -11,24 +10,19 @@ from tg_bot.commands import (start_command,
                              help_command,
                              ivent_command)
 
-from tg_bot.handlers import (check_miner_info, 
-                             buy_miner, 
-                             trade_button, 
-                             cancel_button, 
-                             trade_coins, 
-                             Trade,
-                             all_user_miners,
-                             all_user_prefixes,
-                             change_prefix,
-                             miner_info,
-                             go_back, buy_event_miner)
+from tg_bot.base_hdlrs import cancel_button
+from tg_bot.handlers.trader import Trade, Trader
 
-from tg_bot.admin_commands import (admin_panel,
+from tg_bot.admin.admin_commands import (admin_panel,
                                     update_shop_admin,
                                     send_BD, Admin, 
                                     add_or_sub_balance, add_balance, 
                                     sub_balance, ban_user, ban_user_action, 
                                     actions_with_balance, update_rate_button)
+
+
+from tg_bot.handlers.profile import Profile
+from tg_bot.handlers.shop import Shop
 import logging
 from tg_bot.middlewares import SchedulerMiddleware
 from tg_bot.events import update_current_shop, update_rate, update_event
@@ -56,8 +50,8 @@ async def main():
     dp.message.register(start_command, filters.Command("start"))
 
     # Обработчик команды /profile и кнопки "👤 Профиль"
-    dp.message.register(profile_command, filters.Command("profile"))
-    dp.message.register(profile_command, F.text == "👤 Профиль")
+    dp.message.register(Profile.profile_command, filters.Command("profile"))
+    dp.message.register(Profile.profile_command, F.text == "👤 Профиль")
 
     # Обработчик команды /farm и кнопки "📈 Ферма"
     dp.message.register(farm_command, F.text == "📈 Ферма")
@@ -80,41 +74,50 @@ async def main():
     dp.message.register(ivent_command, filters.Command("event"), CheckIvent())
 
 
-    dp.message.register(trade_coins, Trade.coins)
+    dp.message.register(Trader.trade_coins, Trade.coins)
 
 
 
 
 
     # Обработчик нажатия на кнопку магазина (выбран предмет покупки)
-    dp.callback_query.register(check_miner_info, F.data.startswith('_'), CheckUser())
+    dp.callback_query.register(Shop.check_miner_info, F.data.startswith('_'), CheckUser())
+
+    # Обработчик нажатия на кнопку магазина (инвентовый)
+    dp.callback_query.register(Shop.check_miner_info_event, F.data.startswith('event_'), CheckUser())
 
     # Обработчик нажатия на кнопку "Купить майнер" при ивенте
-    dp.callback_query.register(buy_event_miner, F.data.startswith('ev_'), CheckUser(), IventShopChecker())
+    dp.callback_query.register(Shop.buy_event_miner, F.data.startswith('ev_'), CheckUser(), IventShopChecker())
 
     # Обработчик нажатия на кнопку "Купить"
-    dp.callback_query.register(buy_miner, F.data.startswith('b_'), CheckUser())
+    dp.callback_query.register(Shop.buy_miner, F.data.startswith('b_'), CheckUser())
 
     # Обработчик нажатия на кнопку "Обменять"
-    dp.callback_query.register(trade_button, F.data == "p2p", CheckUser())
+    dp.callback_query.register(Trader.trade_button, F.data == "p2p", CheckUser())
 
     # Кнопка отмены
     dp.callback_query.register(cancel_button, F.data == "cancel", CheckUser())
 
     # Обработчик нажатия на кнопку "мои майнеры"
-    dp.callback_query.register(all_user_miners, F.data == "all_miners", CheckUser())
+    dp.callback_query.register(Profile.all_user_miners, (F.data == "all_miners") | (F.data == 'back_m'), CheckUser())
 
     # Обработчик нажатия на кнопку "мои префиксы"
-    dp.callback_query.register(all_user_prefixes, F.data == "all_prefixes", CheckUser())
+    dp.callback_query.register(Profile.all_user_prefixes, (F.data == "all_prefixes") | (F.data == 'back_pr'), CheckUser())
 
     # Обработчик нажатия на кнопку "изменить префикс"
-    dp.callback_query.register(change_prefix, F.data.startswith('PR_'), CheckUser())
+    dp.callback_query.register(Profile.change_prefix, F.data.startswith('PR_'), CheckUser())
 
     # Обработчик нажатия на кнопку "информация о майнере"
-    dp.callback_query.register(miner_info, F.data.startswith('MI_'), CheckUser())
+    dp.callback_query.register(Profile.miner_info, F.data.startswith('MI_'), CheckUser())
+
+
+    dp.callback_query.register(Profile.profile_command_inline, F.data == 'back_profile', CheckUser())
 
     # Кнопка Назад
-    dp.callback_query.register(go_back, F.data.startswith('back_'), CheckUser())
+
+
+
+    # dp.callback_query.register(plus_button, F.data.startswith("pl"), CheckUser())
 
 
     # ---------------------------------- #

@@ -49,7 +49,7 @@ async def send_BD(callback_qeury: types.Message, bot: Bot):
     await bot.send_document(callback_qeury.from_user.id, types.FSInputFile(path='data/users.json'))
     await bot.send_document(callback_qeury.from_user.id, types.FSInputFile(path='data/current_shop.json'))
     await bot.send_document(callback_qeury.from_user.id, types.FSInputFile(path='data/config.ini'))
-    await bot.send_document(callback_qeury.from_user.id, types.FSInputFile(path='data/rate_info.json'))
+    await bot.send_document(callback_qeury.from_user.id, types.FSInputFile(path='data/rate_info.json')) 
     await callback_qeury.answer("БД выгружена.")
 
 
