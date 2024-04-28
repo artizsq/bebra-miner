@@ -23,7 +23,7 @@ class Trader:
         key = InlineKeyboardBuilder()
         key.button(text="Отменить", callback_data="cancel")
         Bbalance = read_file('data/users.json')[str(callback_query.from_user.id)]['Bbalance']
-        await callback_query.message.edit_text(f"👉 Введите кол-во которое хотите обменять\n\n🪙 У вас на балансе: {round(Bbalance, 8)} BebraCoin'ов\n\n⚠️<i>Минимальное число для пополнения: 1 BebraCoin</i>", reply_markup=key.as_markup())
+        await callback_query.message.edit_text(f"👉 Введите кол-во которое хотите обменять\n\n🪙 У вас на балансе: {round(Bbalance, 8)} BebraCoin'ов", reply_markup=key.as_markup())
         await state.set_state(Trade.coins)
 
     async def trade_coins(message: types.Message, state: FSMContext):
@@ -33,12 +33,11 @@ class Trader:
         key.button(text='Отмена', callback_data='cancel')
 
         try:
-            amount = int(message.text)
-            if amount > data[str(message.from_user.id)]['Bbalance']:
+            amount = float(message.text)
+            if not isinstance(amount, float) or amount <= 0:
+                await message.reply("❌ Число должно быть положительным и содержать десятичную точку.", reply_markup=key.as_markup())
+            elif amount > data[str(message.from_user.id)]['Bbalance']:
                 await message.reply("🚫 Недостаточно средств на балансе!\nВам не хватает " + str(add_thousands_separator(amount - data[str(message.from_user.id)]['Bbalance'])) + " BebraCoin'ов")
-            
-            elif amount < 1:
-                await message.reply("❌ Минимальное количество BebraCoin'ов для обмена: 1", reply_markup=key.as_markup())
             else:
                 data[str(message.from_user.id)]['Rbalance'] += Data().rate * amount
                 data[str(message.from_user.id)]['Bbalance'] -= amount

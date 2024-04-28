@@ -1,7 +1,7 @@
 from aiogram import types
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from utils import data
-from utils.data import read_file, add_miners
+from utils.data import read_file, add_miners, save_file
 from utils.data import add_thousands_separator
 import json
 from utils.parsing import Data
@@ -20,9 +20,7 @@ class Shop:
             await callback_query.answer("🚫 Недостаточно средств на балансе!\nВам не хватает " + str(add_thousands_separator(round(miner_data[miner]['price'] - user_data[str(callback_query.from_user.id)]['Rbalance'], 8))) + " руб")
         else:
             user_data[str(callback_query.from_user.id)]['Rbalance'] -= miner_data[miner]['price']
-            user_data[str(callback_query.from_user.id)]["miners"][miner] = 1
-            with open('data/users.json', 'w') as f:
-                json.dump(user_data, f, indent=4)
+            add_miners(callback_query.from_user.id, miner)
             await callback_query.answer("✅ Вы купили " + miner + " за " + str(add_thousands_separator(miner_data[miner]['price'])) + " b-cash!\n➕ К вашему текущему фарму прибавилось +" + str(miner_data[miner]['pow']), show_alert=True)
 
 
@@ -39,8 +37,7 @@ class Shop:
                 user_data = json.load(f)
             user_data[str(user_id)]['Rbalance'] -= price
             add_miners(user_id, miner)
-            with open('data/users.json', 'w') as f:
-                json.dump(user_data, f, indent=4)
+            save_file('data/users.json', user_data)
             await callback_query.answer("✅ Вы купили " + miner + " за " + str(add_thousands_separator(price)) + " b-cash!\n➕ К вашему текущему фарму прибавилось +" + str(read_file('data/shop_items.json')[miner]['pow']), show_alert=True)
 
 
