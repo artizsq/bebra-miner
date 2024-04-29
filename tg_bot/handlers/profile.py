@@ -65,7 +65,7 @@ class Profile:
 🔑 Логин: @{message.from_user.username}
 🆔 ID: {message.from_user.id}
 
-🔰 Префикс: {read_file('data/users.json')[str(message.from_user.id)]['user_prefix']}
+🔰 Префикс: <b>{read_file('data/users.json')[str(message.from_user.id)]['user_prefix']}</b>
 💸 Баланс b-cash: {add_thousands_separator(round(Rbalance, 8))}
 🪙 Баланас BebraCoin'ов: {add_thousands_separator(round(Bbalance, 8))}
 💪 Мощность фермы: {round(money_per_15_min, 8)} BC/15 мин. (Кол-во машин: {count})
@@ -127,8 +127,9 @@ class Profile:
         data = read_file('data/users.json')
         miners = data[str(callback_query.from_user.id)]['miners']
         key = InlineKeyboardBuilder()
+        user_data = read_file('data/users.json')
         for miner in miners:
-            key.button(text=miner, callback_data=f"MI_{miner}")
+            key.button(text=f'{miner} | {user_data[str(callback_query.from_user.id)]["miners"][miner]["count"]}', callback_data=f"MI_{miner}")
         key.button(text="Назад", callback_data="back_profile")
         key.adjust(1)
         
