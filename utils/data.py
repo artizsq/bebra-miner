@@ -36,9 +36,10 @@ def check_user(user_id):
     save_file('data/users.json', data)
 
 
-def add_bebra_coins(user_id, amount):
+def add_bebra_coins(user_id, amount: int | float):
     data = read_file('data/users.json')
     data[str(user_id)]['Bbalance'] += round(amount, 8)
+    data[str(user_id)]['Bbalance'] = round(data[str(user_id)]['Bbalance'], 8)
     save_file('data/users.json', data)
 
 

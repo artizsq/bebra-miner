@@ -47,9 +47,11 @@ async def farm_command(message: types.Message, appscheduler: AsyncIOScheduler, b
     for miner in miners:
         money_per_15_min += miners[miner]['pow'] * miners[miner]['count']
         count += miners[miner]['count']
-    await message.reply(f"📝 У вас {count} майнер(-ов).\n\n💸 Доход: {round(money_per_15_min, 6)} BCoins/15 минут.")
+    rouded_money = round(money_per_15_min, 8)
+    appscheduler.add_job(get_bebra_coins, trigger='interval', seconds=5, kwargs={'plus': rouded_money, 'chat_id': message.from_user.id})
+    await message.reply(f"📝 У вас {count} майнер(-ов).\n\n💸 Доход: {round(money_per_15_min, 8)} BCoins/15 минут.")
 
-    appscheduler.add_job(get_bebra_coins, trigger='interval', minutes=15, kwargs={'plus': round(money_per_15_min, 6), 'chat_id': message.from_user.id})
+    
 
 
 async def shop_command(message: types.Message):

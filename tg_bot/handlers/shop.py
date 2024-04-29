@@ -12,15 +12,14 @@ class Shop:
     async def buy_event_miner(callback_query: types.CallbackQuery):
         data = Data()
         miner = callback_query.data.split('ev_')[1]
-        with open(f'data/{data.event_name}/event_miners.json', 'r') as f:
-            miner_data = json.load(f)
-        with open('data/users.json', 'r') as f:
-            user_data = json.load(f)
+        user_data = read_file('data/users.json')
+        miner_data = read_file(f'data/{Data().event_name}/event_miners.json')
         if user_data[str(callback_query.from_user.id)]['Rbalance'] < miner_data[miner]['price']:
             await callback_query.answer("🚫 Недостаточно средств на балансе!\nВам не хватает " + str(add_thousands_separator(round(miner_data[miner]['price'] - user_data[str(callback_query.from_user.id)]['Rbalance'], 8))) + " руб")
         else:
             user_data[str(callback_query.from_user.id)]['Rbalance'] -= miner_data[miner]['price']
             add_miners(callback_query.from_user.id, miner)
+            save_file('data/users.json', user_data)
             await callback_query.answer("✅ Вы купили " + miner + " за " + str(add_thousands_separator(miner_data[miner]['price'])) + " b-cash!\n➕ К вашему текущему фарму прибавилось +" + str(miner_data[miner]['pow']), show_alert=True)
 
 
@@ -33,8 +32,7 @@ class Shop:
         if Rbalance < price:
             await callback_query.answer("🚫 Недостаточно средств на балансе!\nВам не хватает " + str(add_thousands_separator(round(price - Rbalance, 8))) + " руб")
         else:
-            with open('data/users.json', 'r') as f:
-                user_data = json.load(f)
+            user_data = read_file('data/users.json')
             user_data[str(user_id)]['Rbalance'] -= price
             add_miners(user_id, miner)
             save_file('data/users.json', user_data)
