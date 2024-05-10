@@ -1,3 +1,5 @@
+# Файл с событями
+
 from aiogram import Bot, types
 import random
 import matplotlib.pyplot as plt

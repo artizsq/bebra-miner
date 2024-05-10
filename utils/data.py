@@ -1,5 +1,10 @@
+# Файл для хранения, изменения, чтения данных
+
+
 import json
 from utils.parsing import Data
+
+
 
 def read_file(file_name):
     try:
