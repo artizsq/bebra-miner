@@ -46,15 +46,8 @@ def add_bebra_coins(user_id, amount: int | float):
 def add_miners(user_id, miner):
     data = read_file('data/users.json')
     try:
-        m_data = read_file('data/shop_items.json')
-        if miner not in data[str(user_id)]['miners']:
-            data[str(user_id)]['miners'][miner] = {
-                'pow': m_data[miner]['pow'],
-                'count': 1
-            }
-        else:
-            data[str(user_id)]['miners'][miner]['count'] += 1
-        save_file('data/users.json', data)
+        m_data = read_file('data/items/miners.json')
+        
     except KeyError:
         config_data = Data()
         m_data = read_file(f'data/{config_data.event_name}/event_miners.json')
@@ -63,10 +56,19 @@ def add_miners(user_id, miner):
                 'pow': m_data[miner]['pow'],
                 'count': 1
             }
+            save_file('data/users.json', data)
         else:
             data[str(user_id)]['miners'][miner]['count'] += 1
-        save_file('data/users.json', data)
+            save_file('data/users.json', data)
+
+
 
 
 def add_thousands_separator(number):
     return '{:,}'.format(number).replace(',', ' ')
+
+
+# class Database():
+
+#     def __init__(self):
+#         self.

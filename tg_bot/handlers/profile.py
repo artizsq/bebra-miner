@@ -27,12 +27,12 @@ class Profile:
             count += miners[miner]['count']
         text = f"""
     ➖➖➖➖➖➖➖➖➖➖➖
-    ℹ️ Информация о вас
+ℹ️ Информация о вас
 
 🔑 Логин: @{callback_query.from_user.username}
 🆔 ID: {callback_query.from_user.id}
 
-🔰 Префикс: {read_file('data/users.json')[str(callback_query.from_user.id)]['user_prefix']}
+🔰 Префикс: <b>{read_file('data/users.json')[str(callback_query.from_user.id)]['user_prefix']}</b>
 💸 Баланс b-cash: {add_thousands_separator(round(Rbalance, 8))}
 🪙 Баланас BebraCoin'ов: {add_thousands_separator(round(Bbalance, 8))}
 💪 Мощность фермы: {round(money_per_15_min, 8)} BC/15 мин. (Кол-во машин: {count})
@@ -99,10 +99,11 @@ class Profile:
             mdata = data[miner]
         count = udata[str(callback_query.from_user.id)]["miners"][miner]["count"]
         await callback_query.message.edit_text(f"""
-    ℹ️<b>Информация о майнере {miner}</b>
+ℹ️<b>Информация о майнере {miner}</b>
 
 ▶️ Название: {miner}
-🔋 Мощность (1 штука): {mdata['pow']} BC/15 мин 
+🔋 Мощность (1 штука): {mdata['pow']} BC/15 мин
+{f'⌛️ Ивент: {Data().event_name} ({mdata["emoji"]})' if miner in read_file(f'data/{Data().event_name}/event_miners.json') else None}
 
 💵 Цена: {mdata['price']} b-cash
 💪 Мощность (всех): {mdata['pow']*count} BC/15 мин
@@ -129,11 +130,15 @@ class Profile:
         key = InlineKeyboardBuilder()
         user_data = read_file('data/users.json')
         for miner in miners:
-            key.button(text=f'{miner} | {user_data[str(callback_query.from_user.id)]["miners"][miner]["count"]}', callback_data=f"MI_{miner}")
+            if miner in read_file(f"data/{Data().event_name}/event_miners.json"):
+                emoji = read_file(f"data/{Data().event_name}/event_miners.json")[miner]['emoji']
+                key.button(text=f'{emoji} {miner} | {user_data[str(callback_query.from_user.id)]["miners"][miner]["count"]}', callback_data=f"MI_{miner}")
+            else:
+                key.button(text=f'{miner} | {user_data[str(callback_query.from_user.id)]["miners"][miner]["count"]}', callback_data=f"MI_{miner}")
         key.button(text="Назад", callback_data="back_profile")
         key.adjust(1)
         
 
-        await callback_query.message.edit_text("📝 Список всех ваших машин\n\n<i>Название машины | Количество машин</i>",parse_mode='HTML', reply_markup=key.as_markup())
+        await callback_query.message.edit_text("📝 Список всех ваших машин\n\n<i>[эмодзи ивента] Название машины | Количество машин</i>",parse_mode='HTML', reply_markup=key.as_markup())
 
     

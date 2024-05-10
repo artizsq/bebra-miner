@@ -22,7 +22,7 @@ from tg_bot.admin.admin_commands import (admin_panel,
 
 
 from tg_bot.handlers.profile import Profile
-from tg_bot.handlers.shop import Shop
+from tg_bot.handlers.shop import ShopMiner, ShopPrefix
 import logging
 from tg_bot.middlewares import SchedulerMiddleware
 from tg_bot.events import update_current_shop, update_rate, update_event
@@ -41,11 +41,10 @@ async def main():
     dp = Dispatcher()
     scheduler = AsyncIOScheduler(timezone="Europe/Moscow")
     scheduler.add_job(update_current_shop, trigger='cron', hour=21, minute=0, start_date=datetime.now(), kwargs={'bot': bot})
-    scheduler.add_job(update_rate, trigger='interval', minutes=15, start_date=datetime.now(), kwargs={'bot': bot})
-    scheduler.add_job(update_event, trigger='interval', hours=12, start_date=datetime.now(), kwargs={'bot': bot})
+    scheduler.add_job(update_rate, trigger='interval', minutes=30, start_date=datetime.now(), kwargs={'bot': bot})
+    # scheduler.add_job(update_event, trigger='interval', hours=12, start_date=datetime.now(), kwargs={'bot': bot})
 
     
-    # dp.message.register(i_dont_know, filters.Command('help'))
     # Обработчик команды /start
     dp.message.register(start_command, filters.Command("start"))
 
@@ -65,10 +64,6 @@ async def main():
     dp.message.register(trade_command, F.text == "🔁 Обменник")
     dp.message.register(trade_command, filters.Command("trade"))
 
-    # Обработчик команды /help и кнопки "🆘 Помощь"
-    dp.message.register(help_command, F.text == "🆘 Помощь")
-    dp.message.register(help_command, filters.Command("help"))
-
     # Обработчик команды /event
     dp.message.register(ivent_command, F.text == "⌛️ Ивент", CheckIvent())
     dp.message.register(ivent_command, filters.Command("event"), CheckIvent())
@@ -81,16 +76,18 @@ async def main():
 
 
     # Обработчик нажатия на кнопку магазина (выбран предмет покупки)
-    dp.callback_query.register(Shop.check_miner_info, F.data.startswith('_'), CheckUser())
+    dp.callback_query.register(ShopMiner.check_miner_info, F.data.startswith('_'), CheckUser())
 
     # Обработчик нажатия на кнопку магазина (инвентовый)
-    dp.callback_query.register(Shop.check_miner_info_event, F.data.startswith('event_'), CheckUser())
+    dp.callback_query.register(ShopMiner.check_miner_info_event, F.data.startswith('event_'), CheckUser())
 
     # Обработчик нажатия на кнопку "Купить майнер" при ивенте
-    dp.callback_query.register(Shop.buy_event_miner, F.data.startswith('ev_'), CheckUser(), IventShopChecker())
+    dp.callback_query.register(ShopMiner.buy_event_miner, F.data.startswith('ev_'), CheckUser(), IventShopChecker())
 
     # Обработчик нажатия на кнопку "Купить"
-    dp.callback_query.register(Shop.buy_miner, F.data.startswith('b_'), CheckUser())
+    dp.callback_query.register(ShopMiner.buy_miner, F.data.startswith('b_'), CheckUser())
+
+    dp.callback_query.register(ShopMiner.all_shop_miners, F.data.startswith('shop_miners'), CheckUser())
 
     # Обработчик нажатия на кнопку "Обменять"
     dp.callback_query.register(Trader.trade_button, F.data == "p2p", CheckUser())
@@ -110,8 +107,19 @@ async def main():
     # Обработчик нажатия на кнопку "информация о майнере"
     dp.callback_query.register(Profile.miner_info, F.data.startswith('MI_'), CheckUser())
 
-
+    # Обработчик нажатия назад
     dp.callback_query.register(Profile.profile_command_inline, F.data == 'back_profile', CheckUser())
+
+    # Обработчик нажатия на кнопку "магазин префиксов"
+    dp.callback_query.register(ShopPrefix.all_shop_prefixes, F.data == "shop_prefix", CheckUser())
+
+    # Обработчик нажатия на кнопку "префиксы"
+    dp.callback_query.register(ShopPrefix.check_prefix_info, F.data.startswith('p_'), CheckUser())
+
+    # Обработчик нажатия на кнопку "купить префикс"
+    dp.callback_query.register(ShopPrefix.buy_prefix, F.data.startswith('pre_'), CheckUser())
+
+    # Обработка магазина с префиксами
 
     # Кнопка Назад
 

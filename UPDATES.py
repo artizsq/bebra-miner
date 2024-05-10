@@ -1,4 +1,6 @@
-x = 1741.847367
-y = round(1741.8473669999933, 8)
-print(y)
-print(type(y))
+from utils.data import read_file, save_file
+
+data = read_file('data/users.json')
+data['2093823215']['prefix'].append('Сися')
+save_file('data/users.json', data)
+print(data)
