@@ -27,10 +27,9 @@ def check_user(user_id):
                     "pow": 0.0005,
                     'count': 1}
             },
-            'clan': None,
-            'user_prefix': "Бета-тестер",
+            'user_prefix': "Игрок",
             'prefix': [
-                "Бета-тестер"
+                "Игрок"
                 ]
         }
     save_file('data/users.json', data)

@@ -1,72 +1,19 @@
 {
     "2093823215": {
-        "Bbalance": 773.738045,
-        "Rbalance": 100521745730.22198,
-        "miners": {
-            "Antminer S9 13.5Th PC": {
-                "pow": 0.0005,
-                "count": 1
-            },
-            "Canaan Avalon 841": {
-                "pow": 0.000611,
-                "count": 13
-            },
-            "Antminer V9": {
-                "pow": 0.00018,
-                "count": 2
-            },
-            "Whatsminer M21S 56Th": {
-                "pow": 0.002517,
-                "count": 4
-            },
-            "Canaan Avalon 921": {
-                "pow": 0.000899,
-                "count": 1
-            },
-            "Canaan Avalon 1047": {
-                "pow": 0.001663,
-                "count": 25
-            },
-            "Antminer T9+": {
-                "pow": 0.000449,
-                "count": 200
-            },
-            "GOD MINER 777": {
-                "pow": 0.114772,
-                "count": 88
-            },
-            "404": {
-                "pow": 0.007123,
-                "count": 3
-            },
-            "BETA Miner T7+": {
-                "pow": 0.115555,
-                "count": 3
-            },
-            "BETA ERROR": {
-                "pow": 0.011111,
-                "count": 1
-            }
-        },
+        "Bbalance": 0,
+        "Rbalance": 0,
+        "miners": [],
         "clan": null,
-        "user_prefix": "Шахматный гений",
+        "user_prefix": "Администратор",
         "prefix": [
             "Бета-тестер",
-            "Администратор",
-            "ЧСВ",
-            "Сися",
-            "Монетный король"
+            "Администратор"
         ]
     },
     "1405745326": {
         "Bbalance": 0,
         "Rbalance": 0,
-        "miners": {
-            "Antminer S9 13.5Th PC": {
-                "pow": 0.0005,
-                "count": 1
-            }
-        },
+        "miners": [],
         "clan": null,
         "user_prefix": "Бета-тестер",
         "prefix": [
@@ -76,12 +23,7 @@
     "1719938328": {
         "Bbalance": 0,
         "Rbalance": 0,
-        "miners": {
-            "Antminer S9 13.5Th PC": {
-                "pow": 0.0005,
-                "count": 1
-            }
-        },
+        "miners": [],
         "clan": null,
         "user_prefix": "Бета-тестер",
         "prefix": [
@@ -91,12 +33,7 @@
     "1543132237": {
         "Bbalance": 0,
         "Rbalance": 0,
-        "miners": {
-            "Antminer S9 13.5Th PC": {
-                "pow": 0.0005,
-                "count": 1
-            }
-        },
+        "miners": [],
         "clan": null,
         "user_prefix": "Бета-тестер",
         "prefix": [
@@ -104,34 +41,9 @@
         ]
     },
     "711082703": {
-        "Bbalance": 12.65699700000001,
-        "Rbalance": 2172377.0,
-        "miners": {
-            "Antminer S9 13.5Th PC": {
-                "pow": 0.0005,
-                "count": 1
-            },
-            "Canaan Avalon A1066 50Th": {
-                "pow": 0.002247,
-                "count": 6
-            },
-            "Whatsminer M21S 56Th": {
-                "pow": 0.002517,
-                "count": 34
-            },
-            "Antminer T17 42Th": {
-                "pow": 0.001798,
-                "count": 3
-            },
-            "Antminer T9+": {
-                "pow": 0.000449,
-                "count": 1
-            },
-            "Antminer T15": {
-                "pow": 0.001078,
-                "count": 8
-            }
-        },
+        "Bbalance": 0,
+        "Rbalance": 0,
+        "miners": [],
         "clan": null,
         "user_prefix": "Бета-тестер",
         "prefix": [
@@ -139,42 +51,9 @@
         ]
     },
     "948900087": {
-        "Bbalance": 0.03818199999998573,
-        "Rbalance": 367621.24259999394,
-        "miners": {
-            "Antminer S9 13.5Th PC": {
-                "pow": 0.0005,
-                "count": 1
-            },
-            "Canaan Avalon 921": {
-                "pow": 0.000899,
-                "count": 5
-            },
-            "Cheetah f1": {
-                "pow": 0.001079,
-                "count": 25
-            },
-            "Antminer T15": {
-                "pow": 0.001078,
-                "count": 1
-            },
-            "Antminer T9 11.5Th": {
-                "pow": 0.000517,
-                "count": 2
-            },
-            "Whatsminer D1": {
-                "pow": 0.007123,
-                "count": 11
-            },
-            "GOD MINER 777": {
-                "pow": 0.114772,
-                "count": 40
-            },
-            "BETA Miner T7+": {
-                "pow": 0.115555,
-                "count": 1
-            }
-        },
+        "Bbalance": 0,
+        "Rbalance": 0,
+        "miners": [],
         "clan": null,
         "user_prefix": "Бета-тестер",
         "prefix": [
@@ -184,12 +63,7 @@
     "1776301337": {
         "Bbalance": 0,
         "Rbalance": 0,
-        "miners": {
-            "Antminer S9 13.5Th PC": {
-                "pow": 0.0005,
-                "count": 1
-            }
-        },
+        "miners": [],
         "clan": null,
         "user_prefix": "Бета-тестер",
         "prefix": [
@@ -199,12 +73,7 @@
     "1315358091": {
         "Bbalance": 0,
         "Rbalance": 0,
-        "miners": {
-            "Antminer S9 13.5Th PC": {
-                "pow": 0.0005,
-                "count": 1
-            }
-        },
+        "miners": [],
         "clan": null,
         "user_prefix": "Бета-тестер",
         "prefix": [
@@ -214,12 +83,7 @@
     "165432508": {
         "Bbalance": 0,
         "Rbalance": 0,
-        "miners": {
-            "Antminer S9 13.5Th PC": {
-                "pow": 0.0005,
-                "count": 1
-            }
-        },
+        "miners": [],
         "clan": null,
         "user_prefix": "Бета-тестер",
         "prefix": [
@@ -229,12 +93,7 @@
     "5343094423": {
         "Bbalance": 0,
         "Rbalance": 0,
-        "miners": {
-            "Antminer S9 13.5Th PC": {
-                "pow": 0.0005,
-                "count": 1
-            }
-        },
+        "miners": [],
         "clan": null,
         "user_prefix": "Бета-тестер",
         "prefix": [
@@ -242,14 +101,9 @@
         ]
     },
     "1009033389": {
-        "Bbalance": 0.1500000000000001,
+        "Bbalance": 0,
         "Rbalance": 0,
-        "miners": {
-            "Antminer S9 13.5Th PC": {
-                "pow": 0.0005,
-                "count": 1
-            }
-        },
+        "miners": [],
         "clan": null,
         "user_prefix": "Бета-тестер",
         "prefix": [
@@ -257,14 +111,9 @@
         ]
     },
     "831136299": {
-        "Bbalance": 0.03800000000000005,
-        "Rbalance": 1000,
-        "miners": {
-            "Antminer S9 13.5Th PC": {
-                "pow": 0.0005,
-                "count": 1
-            }
-        },
+        "Bbalance": 0,
+        "Rbalance": 0,
+        "miners": [],
         "clan": null,
         "user_prefix": "Бета-тестер",
         "prefix": [
@@ -272,39 +121,20 @@
         ]
     },
     "1079719858": {
-        "Bbalance": 1.0,
-        "Rbalance": 1387770.914972,
-        "miners": {
-            "Antminer S9 13.5Th PC": {
-                "pow": 0.0005,
-                "count": 1
-            },
-            "Antminer T9 11.5Th": {
-                "pow": 0.001311,
-                "count": 1
-            },
-            "BETA Miner T5": {
-                "pow": 0.000555,
-                "count": 2
-            }
-        },
+        "Bbalance": 0,
+        "Rbalance": 0,
+        "miners": [],
         "clan": null,
-        "user_prefix": "Тестировщик",
+        "user_prefix": "Бета-тестер",
         "prefix": [
             "Бета-тестер",
-            "Тестировщик",
-            "Шахматный гений ♚"
+            "Тестировщик"
         ]
     },
     "1115321648": {
         "Bbalance": 0,
         "Rbalance": 0,
-        "miners": {
-            "Antminer S9 13.5Th PC": {
-                "pow": 0.0005,
-                "count": 1
-            }
-        },
+        "miners": [],
         "clan": null,
         "user_prefix": "Бета-тестер",
         "prefix": [
@@ -312,38 +142,9 @@
         ]
     },
     "5106379352": {
-        "Bbalance": 11.186066999999873,
-        "Rbalance": 6556914.704783,
-        "miners": {
-            "Antminer S9 13.5Th PC": {
-                "pow": 0.0005,
-                "count": 1
-            },
-            "BETA EX78": {
-                "pow": 0.000235,
-                "count": 3
-            },
-            "Canaan Avalon 921": {
-                "pow": 0.000999,
-                "count": 3
-            },
-            "404": {
-                "pow": 0.007123,
-                "count": 7
-            },
-            "BETA Miner T7+": {
-                "pow": 0.115555,
-                "count": 1
-            },
-            "GOD MINER 777": {
-                "pow": 0.114772,
-                "count": 1
-            },
-            "BETA ERRORS 404": {
-                "pow": 0.114772,
-                "count": 10
-            }
-        },
+        "Bbalance": 0,
+        "Rbalance": 0,
+        "miners": [],
         "clan": null,
         "user_prefix": "Тестировщик",
         "prefix": [
@@ -355,12 +156,7 @@
         "Bbalance": 0,
         "Rbalance": 0,
         "ban": false,
-        "miners": {
-            "Antminer S9 13.5Th PC": {
-                "pow": 0.0005,
-                "count": 1
-            }
-        },
+        "miners": [],
         "clan": null,
         "user_prefix": "Бета-тестер",
         "prefix": [
