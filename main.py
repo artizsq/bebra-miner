@@ -1,7 +1,7 @@
 from aiogram import Bot, Dispatcher, F, filters, types
 import asyncio
 from utils.parsing import Data
-from tg_bot.exceptions import IsAdmin, CheckUser, CheckIvent, IventShopChecker
+from tg_bot.exceptions import IsAdmin, CheckUser, CheckIvent, IventShopChecker, CheckCurrentShopMiner, CheckCurrentShopPrefix
 from tg_bot.commands import (start_command, 
                              delete_panel, 
                              farm_command,
@@ -42,7 +42,8 @@ async def main():
     scheduler = AsyncIOScheduler(timezone="Europe/Moscow")
     scheduler.add_job(update_current_shop, trigger='cron', hour=21, minute=0, start_date=datetime.now(), kwargs={'bot': bot})
     scheduler.add_job(update_rate, trigger='interval', minutes=30, start_date=datetime.now(), kwargs={'bot': bot})
-    # scheduler.add_job(update_event, trigger='interval', hours=12, start_date=datetime.now(), kwargs={'bot': bot})
+    scheduler.add_job(update_event, trigger='cron', hour=12, minute=0, start_date=datetime.now(), kwargs={'bot': bot})
+
 
     
     # Обработчик команды /start
@@ -76,10 +77,10 @@ async def main():
 
 
     # Обработчик нажатия на кнопку магазина (выбран предмет покупки)
-    dp.callback_query.register(ShopMiner.check_miner_info, F.data.startswith('_'), CheckUser())
+    dp.callback_query.register(ShopMiner.check_miner_info, F.data.startswith('_'), CheckUser(), CheckCurrentShopMiner())
 
     # Обработчик нажатия на кнопку магазина (инвентовый)
-    dp.callback_query.register(ShopMiner.check_miner_info_event, F.data.startswith('event_'), CheckUser())
+    dp.callback_query.register(ShopMiner.check_miner_info_event, F.data.startswith('event_'), CheckUser(), IventShopChecker())
 
     # Обработчик нажатия на кнопку "Купить майнер" при ивенте
     dp.callback_query.register(ShopMiner.buy_event_miner, F.data.startswith('ev_'), CheckUser(), IventShopChecker())
@@ -114,10 +115,10 @@ async def main():
     dp.callback_query.register(ShopPrefix.all_shop_prefixes, F.data == "shop_prefix", CheckUser())
 
     # Обработчик нажатия на кнопку "префиксы"
-    dp.callback_query.register(ShopPrefix.check_prefix_info, F.data.startswith('p_'), CheckUser())
+    dp.callback_query.register(ShopPrefix.check_prefix_info, F.data.startswith('p_'), CheckUser(), CheckCurrentShopPrefix())
 
     # Обработчик нажатия на кнопку "купить префикс"
-    dp.callback_query.register(ShopPrefix.buy_prefix, F.data.startswith('pre_'), CheckUser())
+    dp.callback_query.register(ShopPrefix.buy_prefix, F.data.startswith('pre_'), CheckUser(), CheckCurrentShopPrefix())
 
     # Обработка магазина с префиксами
 

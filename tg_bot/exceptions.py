@@ -1,6 +1,7 @@
 from aiogram.filters import BaseFilter
 from aiogram import types
 from utils.parsing import Data
+from utils.data import read_file
 
 
 
@@ -41,4 +42,24 @@ class IventShopChecker(BaseFilter):
             return True
         await message.answer("❌ В данный момент Ивент не активен")
         return False
+    
+class CheckCurrentShopMiner(BaseFilter):
+    async def __call__(self, callback: types.CallbackQuery):
+        data = Data()
+        shop = read_file('data/shop/miners.json')
+        miner = callback.data.split('_')[1]
+        if miner not in shop:
+            await callback.answer("❌ Такого майнера нет в магазине!\nОбновите магазин!", show_alert=True)
+            return False
+        return True
+    
+class CheckCurrentShopPrefix(BaseFilter):
+    async def __call__(self, callback: types.CallbackQuery):
+        data = Data()
+        shop = read_file('data/shop/prefixes.json')
+        miner = callback.data.split('_')[1]
+        if miner not in shop:
+            await callback.answer("❌ Такого префикса нет в магазине!\nОбновите магазин!", show_alert=True)
+            return False
+        return True
         

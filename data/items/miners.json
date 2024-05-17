@@ -1,9 +1,24 @@
 {   
+    "LP0105Godinbag E-": {
+        "pow": 0.00001,
+        "price": 228
+    },
+    
+    "LP0205Anthill E": {
+        "pow": 0.00005,
+        "price": 1144
+    },
+    
+    "LP0505Birdinbag E+": {
+        "pow": 0.000230,
+        "price": 5265
+    },
+    
     "Antminer S9 13.5Th PC": {
         "pow": 0.0005,
         "price": 10000
     },
-
+    
     "Antminer S9j 14Th": {
         "pow": 0.000629,
         "price": 14274
@@ -67,5 +82,68 @@
     "GOD MINER 777": {
         "pow": 0.114772,
         "price": 2696453
+    },
+
+    
+    "KubMiner": {
+        "pow": 0.155772,
+        "price": 3582756
+    },
+
+    "ChocoMiner": {
+        "pow": 0.194772,
+        "price": 4479756
+    },
+
+    "GambitMiner": {
+        "pow": 0.194772,
+        "price": 4479756
+    },
+
+    "TitanMiner": {
+        "pow": 0.23111,
+        "price": 5315530
+    },
+
+    "PocketMiner": {
+        "pow": 0.29117,
+        "price": 6696910
+    },
+
+    "Kosmoiner": {
+        "pow": 0.33333,
+        "price": 7666590
+    },
+
+    "RealGodMiner": {
+        "pow": 0.55555,
+        "price": 12777650
+    },
+
+
+
+
+    
+    "PlanetMiner": {
+        "pow": 1.8,
+        "price": 50400000
+    },
+
+
+
+
+    
+    ".JarMiner": {
+        "pow": 5,
+        "price": 150400000
+    },
+
+
+
+
+    
+    "Ṃ̷̖̃͘̕ǐ̴͍̭͔ň̶̩̉̀e̷̺̹͒̐̎͝r̷͖̱͈̰͗": {
+        "pow": 993,
+        "price": 29993000000
     }
 }

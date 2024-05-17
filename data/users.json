@@ -1,7 +1,7 @@
 {
     "2093823215": {
-        "Bbalance": 0,
-        "Rbalance": 6024,
+        "Bbalance": 385.211592,
+        "Rbalance": 951971436.56797,
         "miners": {
             "Antminer S9 13.5Th PC": {
                 "pow": 0.0005,
@@ -10,6 +10,14 @@
             "Canaan Avalon 1047": {
                 "pow": 0.004,
                 "count": 1
+            },
+            "BETA Miner T5": {
+                "pow": 0.000555,
+                "count": 3
+            },
+            "BETA ERRORS 404": {
+                "pow": 0.114772,
+                "count": 27
             }
         },
         "clan": null,
@@ -80,12 +88,40 @@
         ]
     },
     "948900087": {
-        "Bbalance": 0,
-        "Rbalance": 100000,
+        "Bbalance": 1.163578,
+        "Rbalance": 93797.19394000061,
         "miners": {
             "Antminer S9 13.5Th PC": {
                 "pow": 0.0005,
                 "count": 1
+            },
+            "Canaan Avalon A1066Pro 55Th": {
+                "pow": 0.002072,
+                "count": 2
+            },
+            "BETA Miner T5": {
+                "pow": 0.000555,
+                "count": 6
+            },
+            "Whatsminer M21S 56Th": {
+                "pow": 0.004617,
+                "count": 1
+            },
+            "Canaan Avalon A1066 50Th": {
+                "pow": 0.002647,
+                "count": 1
+            },
+            "BETA Miner T6": {
+                "pow": 0.005555,
+                "count": 7
+            },
+            "BETA EX78": {
+                "pow": 0.000235,
+                "count": 2
+            },
+            "BETA ERRORS 404": {
+                "pow": 0.114772,
+                "count": 7
             }
         },
         "clan": null,
@@ -216,12 +252,20 @@
         ]
     },
     "5106379352": {
-        "Bbalance": 0,
-        "Rbalance": 100000,
+        "Bbalance": 1.4295,
+        "Rbalance": 77910.01699999999,
         "miners": {
             "Antminer S9 13.5Th PC": {
                 "pow": 0.0005,
                 "count": 1
+            },
+            "Canaan Avalon 1047": {
+                "pow": 0.004,
+                "count": 1
+            },
+            "BETA Miner T5": {
+                "pow": 0.000555,
+                "count": 2
             }
         },
         "clan": null,
