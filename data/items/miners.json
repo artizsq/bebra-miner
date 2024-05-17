@@ -31,6 +31,11 @@
         "price": 27951
     },
 
+    "ApolloMiner R&T": {
+        "pow": 0.0015,
+        "price": 30690
+    },
+
 
     
     "Antminer T17 42Th": {

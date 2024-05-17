@@ -26,7 +26,7 @@ class ShopMiner:
                     'pow': miner_data[miner]['pow'],
                     'count': 1
                 }
-                save_file('data/users.json', data)
+                save_file('data/users.json', user_data)
             else:
                 user_data[str(callback_query.from_user.id)]['miners'][miner]['count'] += 1
             save_file('data/users.json', user_data)
@@ -54,7 +54,7 @@ class ShopMiner:
                 user_data[str(user_id)]['miners'][miner]['count'] += 1
             save_file('data/users.json', user_data)
 
-            await callback_query.answer("✅ Вы купили " + miner + " за " + str(add_thousands_separator(price)) + " b-cash!\n➕ К вашему текущему фарму прибавилось +" + str(read_file('data/items/miners.json')[miner]['pow']), show_alert=True)
+            await callback_query.answer("✅ Вы купили " + miner + " за " + str(add_thousands_separator(price)) + " b-cash!\nК вашему текущему фарму прибавилось +" + str(read_file('data/items/miners.json')[miner]['pow']), show_alert=True)
 
 
     async def check_miner_info(callback_query: types.CallbackQuery):

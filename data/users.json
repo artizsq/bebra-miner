@@ -1,8 +1,17 @@
 {
     "2093823215": {
         "Bbalance": 0,
-        "Rbalance": 0,
-        "miners": [],
+        "Rbalance": 6024,
+        "miners": {
+            "Antminer S9 13.5Th PC": {
+                "pow": 0.0005,
+                "count": 1
+            },
+            "Canaan Avalon 1047": {
+                "pow": 0.004,
+                "count": 1
+            }
+        },
         "clan": null,
         "user_prefix": "Администратор",
         "prefix": [
@@ -12,8 +21,13 @@
     },
     "1405745326": {
         "Bbalance": 0,
-        "Rbalance": 0,
-        "miners": [],
+        "Rbalance": 100000,
+        "miners": {
+            "Antminer S9 13.5Th PC": {
+                "pow": 0.0005,
+                "count": 1
+            }
+        },
         "clan": null,
         "user_prefix": "Бета-тестер",
         "prefix": [
@@ -22,8 +36,13 @@
     },
     "1719938328": {
         "Bbalance": 0,
-        "Rbalance": 0,
-        "miners": [],
+        "Rbalance": 100000,
+        "miners": {
+            "Antminer S9 13.5Th PC": {
+                "pow": 0.0005,
+                "count": 1
+            }
+        },
         "clan": null,
         "user_prefix": "Бета-тестер",
         "prefix": [
@@ -32,8 +51,13 @@
     },
     "1543132237": {
         "Bbalance": 0,
-        "Rbalance": 0,
-        "miners": [],
+        "Rbalance": 100000,
+        "miners": {
+            "Antminer S9 13.5Th PC": {
+                "pow": 0.0005,
+                "count": 1
+            }
+        },
         "clan": null,
         "user_prefix": "Бета-тестер",
         "prefix": [
@@ -42,8 +66,13 @@
     },
     "711082703": {
         "Bbalance": 0,
-        "Rbalance": 0,
-        "miners": [],
+        "Rbalance": 100000,
+        "miners": {
+            "Antminer S9 13.5Th PC": {
+                "pow": 0.0005,
+                "count": 1
+            }
+        },
         "clan": null,
         "user_prefix": "Бета-тестер",
         "prefix": [
@@ -52,8 +81,13 @@
     },
     "948900087": {
         "Bbalance": 0,
-        "Rbalance": 0,
-        "miners": [],
+        "Rbalance": 100000,
+        "miners": {
+            "Antminer S9 13.5Th PC": {
+                "pow": 0.0005,
+                "count": 1
+            }
+        },
         "clan": null,
         "user_prefix": "Бета-тестер",
         "prefix": [
@@ -62,8 +96,13 @@
     },
     "1776301337": {
         "Bbalance": 0,
-        "Rbalance": 0,
-        "miners": [],
+        "Rbalance": 100000,
+        "miners": {
+            "Antminer S9 13.5Th PC": {
+                "pow": 0.0005,
+                "count": 1
+            }
+        },
         "clan": null,
         "user_prefix": "Бета-тестер",
         "prefix": [
@@ -72,8 +111,13 @@
     },
     "1315358091": {
         "Bbalance": 0,
-        "Rbalance": 0,
-        "miners": [],
+        "Rbalance": 100000,
+        "miners": {
+            "Antminer S9 13.5Th PC": {
+                "pow": 0.0005,
+                "count": 1
+            }
+        },
         "clan": null,
         "user_prefix": "Бета-тестер",
         "prefix": [
@@ -82,8 +126,13 @@
     },
     "165432508": {
         "Bbalance": 0,
-        "Rbalance": 0,
-        "miners": [],
+        "Rbalance": 100000,
+        "miners": {
+            "Antminer S9 13.5Th PC": {
+                "pow": 0.0005,
+                "count": 1
+            }
+        },
         "clan": null,
         "user_prefix": "Бета-тестер",
         "prefix": [
@@ -92,8 +141,13 @@
     },
     "5343094423": {
         "Bbalance": 0,
-        "Rbalance": 0,
-        "miners": [],
+        "Rbalance": 100000,
+        "miners": {
+            "Antminer S9 13.5Th PC": {
+                "pow": 0.0005,
+                "count": 1
+            }
+        },
         "clan": null,
         "user_prefix": "Бета-тестер",
         "prefix": [
@@ -102,8 +156,13 @@
     },
     "1009033389": {
         "Bbalance": 0,
-        "Rbalance": 0,
-        "miners": [],
+        "Rbalance": 100000,
+        "miners": {
+            "Antminer S9 13.5Th PC": {
+                "pow": 0.0005,
+                "count": 1
+            }
+        },
         "clan": null,
         "user_prefix": "Бета-тестер",
         "prefix": [
@@ -112,8 +171,13 @@
     },
     "831136299": {
         "Bbalance": 0,
-        "Rbalance": 0,
-        "miners": [],
+        "Rbalance": 100000,
+        "miners": {
+            "Antminer S9 13.5Th PC": {
+                "pow": 0.0005,
+                "count": 1
+            }
+        },
         "clan": null,
         "user_prefix": "Бета-тестер",
         "prefix": [
@@ -122,8 +186,13 @@
     },
     "1079719858": {
         "Bbalance": 0,
-        "Rbalance": 0,
-        "miners": [],
+        "Rbalance": 100000,
+        "miners": {
+            "Antminer S9 13.5Th PC": {
+                "pow": 0.0005,
+                "count": 1
+            }
+        },
         "clan": null,
         "user_prefix": "Бета-тестер",
         "prefix": [
@@ -133,8 +202,13 @@
     },
     "1115321648": {
         "Bbalance": 0,
-        "Rbalance": 0,
-        "miners": [],
+        "Rbalance": 100000,
+        "miners": {
+            "Antminer S9 13.5Th PC": {
+                "pow": 0.0005,
+                "count": 1
+            }
+        },
         "clan": null,
         "user_prefix": "Бета-тестер",
         "prefix": [
@@ -143,8 +217,13 @@
     },
     "5106379352": {
         "Bbalance": 0,
-        "Rbalance": 0,
-        "miners": [],
+        "Rbalance": 100000,
+        "miners": {
+            "Antminer S9 13.5Th PC": {
+                "pow": 0.0005,
+                "count": 1
+            }
+        },
         "clan": null,
         "user_prefix": "Тестировщик",
         "prefix": [
@@ -154,9 +233,14 @@
     },
     "5003606815": {
         "Bbalance": 0,
-        "Rbalance": 0,
+        "Rbalance": 100000,
         "ban": false,
-        "miners": [],
+        "miners": {
+            "Antminer S9 13.5Th PC": {
+                "pow": 0.0005,
+                "count": 1
+            }
+        },
         "clan": null,
         "user_prefix": "Бета-тестер",
         "prefix": [
