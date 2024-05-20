@@ -1,7 +1,7 @@
 {
     "2093823215": {
-        "Bbalance": 385.211592,
-        "Rbalance": 951971436.56797,
+        "Bbalance": 953.861997,
+        "Rbalance": 431230146.453746,
         "miners": {
             "Antminer S9 13.5Th PC": {
                 "pow": 0.0005,
@@ -18,13 +18,26 @@
             "BETA ERRORS 404": {
                 "pow": 0.114772,
                 "count": 27
+            },
+            ".JarMiner": {
+                "pow": 5,
+                "count": 1
+            },
+            "BETA Miner T7+": {
+                "pow": 0.115555,
+                "count": 180
             }
         },
         "clan": null,
         "user_prefix": "Администратор",
         "prefix": [
             "Бета-тестер",
-            "Администратор"
+            "Администратор",
+            "Рил Гей",
+            "И Пидорас",
+            "Криптовалютный магнат",
+            "Облачный шахтёр",
+            "Блокчейн-стратег"
         ]
     },
     "1405745326": {
@@ -73,11 +86,15 @@
         ]
     },
     "711082703": {
-        "Bbalance": 0,
-        "Rbalance": 100000,
+        "Bbalance": 0.012,
+        "Rbalance": 13589,
         "miners": {
             "Antminer S9 13.5Th PC": {
                 "pow": 0.0005,
+                "count": 1
+            },
+            "BETA Miner T6": {
+                "pow": 0.005555,
                 "count": 1
             }
         },
@@ -88,8 +105,8 @@
         ]
     },
     "948900087": {
-        "Bbalance": 1.163578,
-        "Rbalance": 93797.19394000061,
+        "Bbalance": 88.993163,
+        "Rbalance": 1498093.6939400006,
         "miners": {
             "Antminer S9 13.5Th PC": {
                 "pow": 0.0005,
@@ -122,12 +139,24 @@
             "BETA ERRORS 404": {
                 "pow": 0.114772,
                 "count": 7
+            },
+            "404": {
+                "pow": 0.007123,
+                "count": 54
+            },
+            "BETA Miner T7+": {
+                "pow": 0.115555,
+                "count": 20
             }
         },
         "clan": null,
-        "user_prefix": "Бета-тестер",
+        "user_prefix": "Главный гей",
         "prefix": [
-            "Бета-тестер"
+            "Бета-тестер",
+            "Лох",
+            "Главный гей",
+            "Админ главнее Тимура",
+            "Анимешник"
         ]
     },
     "1776301337": {
@@ -221,8 +250,8 @@
         ]
     },
     "1079719858": {
-        "Bbalance": 0,
-        "Rbalance": 100000,
+        "Bbalance": 0.0805,
+        "Rbalance": 104007.36,
         "miners": {
             "Antminer S9 13.5Th PC": {
                 "pow": 0.0005,
@@ -252,8 +281,8 @@
         ]
     },
     "5106379352": {
-        "Bbalance": 1.4295,
-        "Rbalance": 77910.01699999999,
+        "Bbalance": 0.02783000000000002,
+        "Rbalance": 69850.44825799996,
         "miners": {
             "Antminer S9 13.5Th PC": {
                 "pow": 0.0005,
@@ -266,6 +295,14 @@
             "BETA Miner T5": {
                 "pow": 0.000555,
                 "count": 2
+            },
+            "BETA Miner T6": {
+                "pow": 0.005555,
+                "count": 7
+            },
+            "BETA Miner T7": {
+                "pow": 0.015555,
+                "count": 1
             }
         },
         "clan": null,
@@ -289,6 +326,25 @@
         "user_prefix": "Бета-тестер",
         "prefix": [
             "Бета-тестер"
+        ]
+    },
+    "904464040": {
+        "Bbalance": 877.0,
+        "Rbalance": 21543222.0,
+        "ban": false,
+        "miners": {
+            "Antminer S9 13.5Th PC": {
+                "pow": 0.0005,
+                "count": 1
+            },
+            "LP0105Godinbag E-": {
+                "pow": 1e-05,
+                "count": 1
+            }
+        },
+        "user_prefix": "Лизка",
+        "prefix": [
+            "Лизка"
         ]
     }
 }

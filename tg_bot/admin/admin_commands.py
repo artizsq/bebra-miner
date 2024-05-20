@@ -3,7 +3,7 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 from utils.parsing import Data 
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
-from tg_bot.events import update_current_shop, update_rate
+from tg_bot.events import update_current_shop, update_rate, update_event
 from utils.data import read_file, save_file
 
 class Admin(StatesGroup):
@@ -28,12 +28,11 @@ async def admin_panel(message: types.Message, bot: Bot):
     key.button(text="Увеличить баланс", callback_data="add_balance")
     key.button(text="Уменьшить баланс", callback_data="sub_balance")
     key.button(text="Рассылка", callback_data="send")
-    key.button(text="Забанить пользователя", callback_data="ban")
-    key.button(text="Разбанить пользователя", callback_data="unban")
     key.button(text="Выгрузить БД", callback_data="upload")
     key.button(text="Загрузить БД", callback_data="set")
     key.button(text="Обновить магазин", callback_data="update_shop")
     key.button(text="Обновить курс", callback_data="rate")
+    key.button(text="Обновить ивентовый магазин", callback_data="update_event")
     key.adjust(2, 1, 2, 2)
 
     await message.reply("Админ панель: ", reply_markup=key.as_markup())
@@ -43,6 +42,8 @@ async def admin_panel(message: types.Message, bot: Bot):
 async def update_shop_admin(callback_qeury: types.CallbackQuery, bot: Bot):
     await update_current_shop(bot)
     
+async def update_event_admin(callback_qeury: types.CallbackQuery, bot: Bot):
+    await update_event(bot)
 
 
 async def send_BD(callback_qeury: types.Message, bot: Bot):
@@ -111,10 +112,8 @@ async def add_or_sub_balance(message: types.Message, state: FSMContext):
 
     if action == "add":
         user_data[data['user_id']]['Rbalance'] += int(message.text)
-        print(user_data[str(message.from_user.id)]['Rbalance'] + int(message.text))
     elif action == "sub":
         user_data[data['user_id']]['Rbalance'] -= int(message.text)
-        print(data['user_id']['Rbalance'] - int(message.text))
     save_file('data/users.json', user_data)
     
     await message.reply("Баланс обновлен.")

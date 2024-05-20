@@ -7,7 +7,6 @@ from tg_bot.commands import (start_command,
                              farm_command,
                              shop_command,
                              trade_command,
-                             help_command,
                              ivent_command)
 
 from tg_bot.base_hdlrs import cancel_button
@@ -18,7 +17,8 @@ from tg_bot.admin.admin_commands import (admin_panel,
                                     send_BD, Admin, 
                                     add_or_sub_balance, add_balance, 
                                     sub_balance, ban_user, ban_user_action, 
-                                    actions_with_balance, update_rate_button)
+                                    actions_with_balance, update_rate_button,
+                                    update_event_admin)
 
 
 from tg_bot.handlers.profile import Profile
@@ -142,6 +142,7 @@ async def main():
     dp.message.register(ban_user_action, Admin.user_id, IsAdmin())
     dp.callback_query.register(update_shop_admin, F.data == "update_shop", IsAdmin())
     dp.callback_query.register(update_rate_button, F.data == "rate", IsAdmin())
+    dp.callback_query.register(update_event_admin, F.data == "update_event", IsAdmin())
 
 
     

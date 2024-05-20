@@ -90,7 +90,7 @@ class Profile:
         key = InlineKeyboardBuilder()
         key.button(text="Назад", callback_data="back_m")
         miner = callback_query.data.split('_')[1]
-        data = read_file("data/shop_items.json")
+        data = read_file("data/items/miners.json")
         udata = read_file("data/users.json")
         try:
             mdata = data[miner]
@@ -103,7 +103,7 @@ class Profile:
 
 ▶️ Название: {miner}
 🔋 Мощность (1 штука): {mdata['pow']} BC/15 мин
-{f'⌛️ Ивент: {Data().event_name} ({mdata["emoji"]})' if miner in read_file(f'data/{Data().event_name}/event_miners.json') else None}
+{f'⌛️ Ивент: {Data().event_name} ({mdata["emoji"]})' if miner in read_file(f'data/{Data().event_name}/event_miners.json') else ""}
 
 💵 Цена: {mdata['price']} b-cash
 💪 Мощность (всех): {mdata['pow']*count} BC/15 мин

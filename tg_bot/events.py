@@ -5,12 +5,15 @@ import random
 import matplotlib.pyplot as plt
 from utils.data import read_file, save_file
 from utils.parsing import Data
-from utils.data import add_bebra_coins
 
 
 
-async def get_bebra_coins(plus, chat_id: int):
-    add_bebra_coins(chat_id, plus)
+
+async def get_bebra_coins(plus, chat_id):
+    data = read_file('data/users.json')
+    data[str(chat_id)]['Bbalance'] += plus
+    save_file('data/users.json', data)
+
 
 
 async def update_current_shop(bot: Bot):
@@ -77,7 +80,7 @@ async def update_rate(bot: Bot):
 
 
 
-def update_event(bot: Bot):
+async def update_event(bot: Bot):
     data = Data()
     shop_data = read_file(f'data/{data.event_name}/event_miners.json')
     current_shop = read_file(f'data/{data.event_name}/shop.json')
@@ -91,4 +94,6 @@ def update_event(bot: Bot):
     current_shop = random_items
     
     save_file(f'data/{data.event_name}/shop.json', current_shop)
+    for admin in data.admin_ids:
+        await bot.send_message(admin, "Ивентовый обновлен!")
     

@@ -40,11 +40,6 @@ def check_user(user_id):
     save_file('data/users.json', data)
 
 
-def add_bebra_coins(user_id, amount: int | float):
-    data = read_file('data/users.json')
-    data[str(user_id)]['Bbalance'] += round(amount, 8)
-    data[str(user_id)]['Bbalance'] = round(data[str(user_id)]['Bbalance'], 8)
-    save_file('data/users.json', data)
 
 
 def add_miners(user_id, miner):
@@ -72,7 +67,24 @@ def add_thousands_separator(number):
     return '{:,}'.format(number).replace(',', ' ')
 
 
-# class Database():
+def get_ability(user_id, prefix):
+    data = read_file('data/users.json')
+    prefix_data = read_file('data/items/prefixes.json')
+    return prefix_data[prefix]['ability']
 
-#     def __init__(self):
-#         self.
+
+def retranslate_prefix(prefix):
+    data = read_file('data/items/prefixes.json')
+    if "add" in data[prefix]['ability'] and not data[prefix]['ability'].startswith('spadd'):
+        return f"К вашему текущему фарму прибавляется {data[prefix]['ability'].split('_')[1]}% от общей мощности майнеров."
+    elif "speed" in data[prefix]['ability']:
+        return f"Вы фармите на {data[prefix]['ability'].split('_')[1]} минут быстрее."
+    
+    elif "shop" in data[prefix]['ability']:
+        return f"Вы получаете скидку {data[prefix]['ability'].split('_')[1]}% при покупке какого-либо товара в магазине."
+    
+    elif data[prefix]['ability'] == "show_rate":
+        return f"Вам будет видно обновления курса BebraCoin'а (На данном моменте не работает)"
+    
+    elif "spadd" in data[prefix]['ability']:
+        return f"К вашему текущему фарму прибавляется {data[prefix]['ability'].split('_')[1]}% от общей мощности майнеров, а также скорость майнинга на {data[prefix]['ability'].split('_')[1]} минут."
