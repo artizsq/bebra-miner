@@ -13,8 +13,9 @@ def shop_btn():
     key.add(miners, prefix)
     return key.as_markup()
 
-def shop_miners():
+def shop_miners(ability, user_id):
     data = read_file('data/shop/miners.json')
+    miner_data = read_file('data/items/miners.json')
     kb = InlineKeyboardBuilder()
     item1 = data[0]
     item2 = data[1]
@@ -22,26 +23,63 @@ def shop_miners():
     item4 = data[3]
     item5 = data[4]
     item6  = data[5]
-    kb.button(text=item1 + " | " + add_thousands_separator(read_file('data/items/miners.json')[item1]['price']) + " b-cash", callback_data=f"_{item1}")
-    kb.button(text=item2 + " | " + add_thousands_separator(read_file('data/items/miners.json')[item2]['price']) + " b-cash", callback_data=f"_{item2}")
-    kb.button(text=item3 + " | " + add_thousands_separator(read_file('data/items/miners.json')[item3]['price']) + " b-cash", callback_data=f"_{item3}")
-    kb.button(text=item4 + " | " + add_thousands_separator(read_file('data/items/miners.json')[item4]['price']) + " b-cash", callback_data=f"_{item4}")
-    kb.button(text=item5 + " | " + add_thousands_separator(read_file('data/items/miners.json')[item5]['price']) + " b-cash", callback_data=f"_{item5}")
-    kb.button(text=item6 + " | " + add_thousands_separator(read_file('data/items/miners.json')[item6]['price']) + " b-cash", callback_data=f"_{item6}")
+
+    price1 = miner_data[item1]['price'] 
+    price2 = miner_data[item2]['price'] 
+    price3 = miner_data[item3]['price'] 
+    price4 = miner_data[item4]['price'] 
+    price5 = miner_data[item5]['price'] 
+    price6 = miner_data[item6]['price']
+
+    
+    user_data = read_file('data/users.json')
+    if user_data[str(user_id)]['user_prefix'] in read_file('data/items/prefixes.json'):
+        if ability.startswith('shop'):
+            price1 -= miner_data[item1]['price'] * int(ability.split('_')[1]) / 100
+            price2 -= miner_data[item2]['price'] * int(ability.split('_')[1]) / 100
+            price3 -= miner_data[item3]['price'] * int(ability.split('_')[1]) / 100
+            price4 -= miner_data[item4]['price'] * int(ability.split('_')[1]) / 100
+            price5 -= miner_data[item5]['price'] * int(ability.split('_')[1]) / 100
+            price6 -= miner_data[item6]['price'] * int(ability.split('_')[1]) / 100
+
+
+    kb.button(text=item1 + " | " + add_thousands_separator(price1) + " b-cash", callback_data=f"_{item1}")
+    kb.button(text=item2 + " | " + add_thousands_separator(price2) + " b-cash", callback_data=f"_{item2}")
+    kb.button(text=item3 + " | " + add_thousands_separator(price3) + " b-cash", callback_data=f"_{item3}")
+    kb.button(text=item4 + " | " + add_thousands_separator(price4) + " b-cash", callback_data=f"_{item4}")
+    kb.button(text=item5 + " | " + add_thousands_separator(price5) + " b-cash", callback_data=f"_{item5}")
+    kb.button(text=item6 + " | " + add_thousands_separator(price6) + " b-cash", callback_data=f"_{item6}")
     kb.adjust(1)
     return kb.as_markup()
 
-def shop_prefixes():
+def shop_prefixes(ability, user_id):
     data = read_file('data/shop/prefixes.json')
+    prefix_data = read_file('data/items/prefixes.json')
     kb = InlineKeyboardBuilder()
     item1 = data[0]
     item2 = data[1]
     item3 = data[2]
     item4 = data[3]
-    kb.button(text=item1 + " | " + add_thousands_separator(read_file('data/items/prefixes.json')[item1]['price']) + " b-cash", callback_data=f"p_{item1}")
-    kb.button(text=item2 + " | " + add_thousands_separator(read_file('data/items/prefixes.json')[item2]['price']) + " b-cash", callback_data=f"p_{item2}")
-    kb.button(text=item3 + " | " + add_thousands_separator(read_file('data/items/prefixes.json')[item3]['price']) + " b-cash", callback_data=f"p_{item3}")
-    kb.button(text=item4 + " | " + add_thousands_separator(read_file('data/items/prefixes.json')[item4]['price']) + " b-cash", callback_data=f"p_{item4}")
+
+    price1 = prefix_data[item1]['price'] 
+    price2 = prefix_data[item2]['price'] 
+    price3 = prefix_data[item3]['price'] 
+    price4 = prefix_data[item4]['price'] 
+
+
+    
+    user_data = read_file('data/users.json')
+    if user_data[str(user_id)]['user_prefix'] in read_file('data/items/prefixes.json'):
+        if ability.startswith('shop'):
+            price1 -= prefix_data[item1]['price'] * int(ability.split('_')[1]) / 100
+            price2 -= prefix_data[item2]['price'] * int(ability.split('_')[1]) / 100
+            price3 -= prefix_data[item3]['price'] * int(ability.split('_')[1]) / 100
+            price4 -= prefix_data[item4]['price'] * int(ability.split('_')[1]) / 100
+
+    kb.button(text=item1 + " | " + add_thousands_separator(price1) + " b-cash", callback_data=f"p_{item1}")
+    kb.button(text=item2 + " | " + add_thousands_separator(price2) + " b-cash", callback_data=f"p_{item2}")
+    kb.button(text=item3 + " | " + add_thousands_separator(price3) + " b-cash", callback_data=f"p_{item3}")
+    kb.button(text=item4 + " | " + add_thousands_separator(price4) + " b-cash", callback_data=f"p_{item4}")
     kb.adjust(1)
     return kb.as_markup()
 

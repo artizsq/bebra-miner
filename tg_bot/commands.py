@@ -48,12 +48,13 @@ async def farm_command(message: types.Message, appscheduler: AsyncIOScheduler, b
         money_per_15_min += miners[miner]['pow'] * miners[miner]['count']
         count += miners[miner]['count']
     rouded_money = round(money_per_15_min, 5)
-    ability = get_ability(message.from_user.id, read_file('data/users.json')[str(message.from_user.id)]['user_prefix'])
     time = 15
-    if ability.startswith('add'):
-        rouded_money += rouded_money * float(ability.split('_')[1]) / 100
-    elif ability.startswith('speed'):
-        time -= int(ability.split('_')[1])
+    if read_file('data/users.json')[str(message.from_user.id)]['user_prefix'] in read_file('data/items/prefixes.json'):
+        ability = get_ability(message.from_user.id, read_file('data/users.json')[str(message.from_user.id)]['user_prefix'])
+        if ability.startswith('add'):
+            rouded_money += rouded_money * float(ability.split('_')[1]) / 100
+        elif ability.startswith('speed'):
+            time -= int(ability.split('_')[1])
 
     appscheduler.add_job(get_bebra_coins, trigger='interval', minutes=time, kwargs={'plus': rouded_money, 'chat_id': message.from_user.id})
     await message.reply(f"📝 У вас {count} майнер(-ов).\n\n💸 Доход: {rouded_money} BCoins/{time} минут.")
