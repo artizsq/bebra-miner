@@ -1,39 +1,39 @@
 {
     "2093823215": {
-        "Bbalance": 31331.1354299997,
-        "Rbalance": 16402868131.596125,
+        "Bbalance": 0.0001,
+        "Rbalance": 5000000,
         "miners": {
             "Antminer S9 13.5Th PC": {
-                "pow": 0.0005,
+                "pow": 5e-05,
                 "count": 1
             },
             "Canaan Avalon 1047": {
                 "pow": 0.004,
-                "count": 1
+                "count": 0
             },
             "BETA Miner T5": {
                 "pow": 0.000555,
-                "count": 3
+                "count": 0
             },
             "BETA ERRORS 404": {
                 "pow": 0.114772,
-                "count": 27
+                "count": 0
             },
             ".JarMiner": {
                 "pow": 5,
-                "count": 161
+                "count": 0
             },
             "BETA Miner T7+": {
                 "pow": 0.115555,
-                "count": 180
+                "count": 0
             },
             "BETA Miner T7": {
                 "pow": 0.015555,
-                "count": 50
+                "count": 0
             },
             "PlanetMiner": {
                 "pow": 1.8,
-                "count": 1
+                "count": 0
             }
         },
         "clan": null,
@@ -114,8 +114,8 @@
         ]
     },
     "948900087": {
-        "Bbalance": 408.3708630000011,
-        "Rbalance": 9131262.693939984,
+        "Bbalance": 408.37086,
+        "Rbalance": 10131262.69394,
         "miners": {
             "Antminer S9 13.5Th PC": {
                 "pow": 0.0005,
@@ -302,8 +302,8 @@
         ]
     },
     "5106379352": {
-        "Bbalance": 0.02783000000000002,
-        "Rbalance": 69850.44825799996,
+        "Bbalance": 0.02783,
+        "Rbalance": 69850.44826,
         "miners": {
             "Antminer S9 13.5Th PC": {
                 "pow": 0.0005,
@@ -356,11 +356,7 @@
         "miners": {
             "Antminer S9 13.5Th PC": {
                 "pow": 0.0005,
-                "count": 1
-            },
-            "LP0105Godinbag E-": {
-                "pow": 1e-05,
-                "count": 1
+                "count": 10
             }
         },
         "user_prefix": "Лизка",

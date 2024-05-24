@@ -12,6 +12,7 @@ from utils.parsing import Data
 async def get_bebra_coins(plus, chat_id):
     data = read_file('data/users.json')
     data[str(chat_id)]['Bbalance'] += plus
+    data[str(chat_id)]['Rbalance'] = round(data[str(chat_id)]['Rbalance'], 5)
     save_file('data/users.json', data)
 
 

@@ -1,0 +1,10 @@
+{
+    "fixedbugs24": {
+        "reward": 500000,
+        "count": 96,
+        "activations": [
+            "2093823215"
+        ],
+        "type": "b-cash"
+    }
+}

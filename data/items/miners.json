@@ -1,18 +1,4 @@
-{   
-    "LP0105Godinbag E-": {
-        "pow": 0.00001,
-        "price": 228
-    },
-    
-    "LP0205Anthill E": {
-        "pow": 0.00005,
-        "price": 1144
-    },
-    
-    "LP0505Birdinbag E+": {
-        "pow": 0.000230,
-        "price": 5265
-    },
+{ 
     
     "Antminer S9 13.5Th PC": {
         "pow": 0.0005,

@@ -88,3 +88,9 @@ def retranslate_prefix(prefix):
     
     elif "spadd" in data[prefix]['ability']:
         return f"К вашему текущему фарму прибавляется {data[prefix]['ability'].split('_')[1]}% от общей мощности майнеров, а также скорость майнинга на {data[prefix]['ability'].split('_')[1]} минут."
+
+
+def convert_number(number_str):
+    number = float(number_str.split('e-')[0]) * (10 ** int(number_str.split('e-')[1]))
+    return '{:.5f}'.format(number)
+

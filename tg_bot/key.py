@@ -43,12 +43,12 @@ def shop_miners(ability, user_id):
             price6 -= miner_data[item6]['price'] * int(ability.split('_')[1]) / 100
 
 
-    kb.button(text=item1 + " | " + add_thousands_separator(price1) + " b-cash", callback_data=f"_{item1}")
-    kb.button(text=item2 + " | " + add_thousands_separator(price2) + " b-cash", callback_data=f"_{item2}")
-    kb.button(text=item3 + " | " + add_thousands_separator(price3) + " b-cash", callback_data=f"_{item3}")
-    kb.button(text=item4 + " | " + add_thousands_separator(price4) + " b-cash", callback_data=f"_{item4}")
-    kb.button(text=item5 + " | " + add_thousands_separator(price5) + " b-cash", callback_data=f"_{item5}")
-    kb.button(text=item6 + " | " + add_thousands_separator(price6) + " b-cash", callback_data=f"_{item6}")
+    kb.button(text=item1 + " | " + add_thousands_separator(round(price1, 2)) + " b-cash", callback_data=f"_{item1}")
+    kb.button(text=item2 + " | " + add_thousands_separator(round(price2, 2)) + " b-cash", callback_data=f"_{item2}")
+    kb.button(text=item3 + " | " + add_thousands_separator(round(price3, 2)) + " b-cash", callback_data=f"_{item3}")
+    kb.button(text=item4 + " | " + add_thousands_separator(round(price4, 2)) + " b-cash", callback_data=f"_{item4}")
+    kb.button(text=item5 + " | " + add_thousands_separator(round(price5, 2)) + " b-cash", callback_data=f"_{item5}")
+    kb.button(text=item6 + " | " + add_thousands_separator(round(price6, 2)) + " b-cash", callback_data=f"_{item6}")
     kb.adjust(1)
     return kb.as_markup()
 
@@ -76,10 +76,10 @@ def shop_prefixes(ability, user_id):
             price3 -= prefix_data[item3]['price'] * int(ability.split('_')[1]) / 100
             price4 -= prefix_data[item4]['price'] * int(ability.split('_')[1]) / 100
 
-    kb.button(text=item1 + " | " + add_thousands_separator(price1) + " b-cash", callback_data=f"p_{item1}")
-    kb.button(text=item2 + " | " + add_thousands_separator(price2) + " b-cash", callback_data=f"p_{item2}")
-    kb.button(text=item3 + " | " + add_thousands_separator(price3) + " b-cash", callback_data=f"p_{item3}")
-    kb.button(text=item4 + " | " + add_thousands_separator(price4) + " b-cash", callback_data=f"p_{item4}")
+    kb.button(text=item1 + " | " + add_thousands_separator(round(price1, 2)) + " b-cash", callback_data=f"p_{item1}")
+    kb.button(text=item2 + " | " + add_thousands_separator(round(price2, 2)) + " b-cash", callback_data=f"p_{item2}")
+    kb.button(text=item3 + " | " + add_thousands_separator(round(price3, 2)) + " b-cash", callback_data=f"p_{item3}")
+    kb.button(text=item4 + " | " + add_thousands_separator(round(price4, 2)) + " b-cash", callback_data=f"p_{item4}")
     kb.adjust(1)
     return kb.as_markup()
 

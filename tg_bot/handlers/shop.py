@@ -2,7 +2,7 @@ from aiogram import types
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from utils import data
 from utils.data import read_file, add_miners, save_file
-from utils.data import add_thousands_separator, retranslate_prefix, get_ability
+from utils.data import add_thousands_separator, retranslate_prefix, get_ability, convert_number
 import json
 from tg_bot.key import shop_btn, shop_miners, shop_prefixes
 from utils.parsing import Data
@@ -77,7 +77,9 @@ class ShopMiner:
             ability = get_ability(callback_query.from_user.id, user_data[str(callback_query.from_user.id)]['user_prefix'])
             if ability.startswith('shop'):
                 price -= miner_data[miner]['price'] * int(ability.split('_')[1]) / 100
-        await callback_query.message.edit_text(f"❇️ Вы выбрали майнер: {miner}\n💵 Цена: {add_thousands_separator(price)} b-cash\n🔋 Мощность: {miner_data[miner]['pow']} BC/15 мин.\n\nВыберите количество, которое хотите купить: ", reply_markup=key.as_markup())
+
+        power = miner_data[miner]['pow']
+        await callback_query.message.edit_text(f"❇️ Вы выбрали майнер: {miner}\n💵 Цена: {add_thousands_separator(price)} b-cash\n🔋 Мощность: {power} BC/15 мин.\n\nВыберите количество, которое хотите купить: ", reply_markup=key.as_markup())
 
     async def check_miner_info_event(callback_query: types.CallbackQuery):
         key = InlineKeyboardBuilder()
@@ -87,7 +89,8 @@ class ShopMiner:
         key.button(text="1", callback_data=f"ev_1_{miner}")
         key.button(text="5", callback_data=f"ev_5_{miner}")
         key.button(text="10", callback_data=f"ev_10_{miner}")
-        await callback_query.message.edit_text(f"❇️ Вы выбрали майнер: {miner}\n💵 Цена: {add_thousands_separator(miner_data[miner]['price'])} b-cash\n🔋 Мощность: {miner_data[miner]['pow']} BC/15 мин.", reply_markup=key.as_markup())
+        await callback_query.message.edit_text(f"❇️ Вы выбрали майнер: {miner}\n💵 Цена: {add_thousands_separator(round(miner_data[miner]['price'], 2))} b-cash\n🔋 Мощность: {int(miner_data[miner]['pow'])} BC/15 мин.", reply_markup=key.as_markup())
+
 
 
     async def  all_shop_miners(callback_query: types.CallbackQuery):

@@ -5,6 +5,8 @@ from utils.data import read_file
 from datetime import datetime, timedelta
 from utils.data import add_thousands_separator, get_ability
 from tg_bot.events import get_bebra_coins
+from aiogram.fsm.context import FSMContext
+from aiogram.fsm.state import State, StatesGroup
 
 
 from utils.parsing import Data
@@ -12,7 +14,8 @@ from tg_bot.key import shop_btn, main_btn, ivent_shop
 
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
-
+class Promo(StatesGroup):
+    text = State()
 
 async def start_command(message: types.Message):
     data.check_user(message.from_user.id)
@@ -84,3 +87,13 @@ async def trade_command(message: types.Message, bot: Bot):
 
 async def ivent_command(message: types.Message):
     await message.reply("Ивентовый магазин со своими уникальными товарами\n\nОбновление магазина происходит каждые 12 часов\n", reply_markup=ivent_shop())
+
+
+async def promocode_command(message: types.Message, state: FSMContext):
+    key = InlineKeyboardBuilder()
+    key.button(text="Отмена", callback_data="cancel")
+    await message.reply(f"Введите промокод:", reply_markup=key.as_markup())
+    await state.set_state(Promo.text)
+
+
+    

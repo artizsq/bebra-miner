@@ -1,13 +1,17 @@
 from aiogram import Bot, Dispatcher, F, filters, types
 import asyncio
 from utils.parsing import Data
-from tg_bot.exceptions import IsAdmin, CheckUser, CheckIvent, IventShopChecker, CheckCurrentShopMiner, CheckCurrentShopPrefix
+from tg_bot.exceptions import IsAdmin, CheckUser, CheckIvent, IventShopChecker, CheckCurrentShopMiner, CheckCurrentShopPrefix, CheckPromocode
 from tg_bot.commands import (start_command, 
                              delete_panel, 
                              farm_command,
                              shop_command,
                              trade_command,
-                             ivent_command)
+                             ivent_command,
+                             promocode_command, 
+                             Promo)
+
+from tg_bot.handlers.promocodes import promocode_redeem
 
 from tg_bot.base_hdlrs import cancel_button
 from tg_bot.handlers.trader import Trade, Trader
@@ -69,8 +73,12 @@ async def main():
     dp.message.register(ivent_command, F.text == "⌛️ Ивент", CheckIvent())
     dp.message.register(ivent_command, filters.Command("event"), CheckIvent())
 
+    # Обработчик команды /promocode
+    dp.message.register(promocode_command, filters.Command("promocode"))
+
 
     dp.message.register(Trader.trade_coins, Trade.coins)
+    dp.message.register(promocode_redeem, Promo.text, CheckPromocode())
 
 
 
@@ -120,13 +128,10 @@ async def main():
     # Обработчик нажатия на кнопку "купить префикс"
     dp.callback_query.register(ShopPrefix.buy_prefix, F.data.startswith('pre_'), CheckUser(), CheckCurrentShopPrefix())
 
-    # Обработка магазина с префиксами
-
-    # Кнопка Назад
 
 
 
-    # dp.callback_query.register(plus_button, F.data.startswith("pl"), CheckUser())
+
 
 
     # ---------------------------------- #

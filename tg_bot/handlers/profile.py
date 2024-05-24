@@ -2,7 +2,7 @@ from aiogram import types
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from utils import data
 from utils.data import read_file, save_file
-from utils.data import add_thousands_separator
+from utils.data import add_thousands_separator, retranslate_prefix
 
 from utils.parsing import Data
 
@@ -83,7 +83,9 @@ class Profile:
         data = read_file("data/users.json")
         data[str(callback_query.from_user.id)]["user_prefix"] = prefix
         save_file("data/users.json", data)
-        await callback_query.message.edit_text(f"✅ Теперь ваш префикс: <b>{prefix}</b>", parse_mode='HTML', reply_markup=key.as_markup())
+        ability = retranslate_prefix(prefix)
+
+        await callback_query.message.edit_text(f"✅ Теперь ваш префикс: <b>{prefix}</b>\n⭐️ Способность: <i>{ability}</i>", parse_mode='HTML', reply_markup=key.as_markup())
 
 
     async def miner_info(callback_query: types.CallbackQuery):
