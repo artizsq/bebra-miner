@@ -1,9 +1,19 @@
 {
     "fixedbugs24": {
         "reward": 500000,
-        "count": 96,
+        "count": 94,
         "activations": [
-            "2093823215"
+            "2093823215",
+            "5106379352",
+            "948900087"
+        ],
+        "type": "b-cash"
+    },
+    "AdminCode": {
+        "reward": 5000000,
+        "count": 99,
+        "activations": [
+            "948900087"
         ],
         "type": "b-cash"
     }

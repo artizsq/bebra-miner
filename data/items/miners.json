@@ -6,29 +6,29 @@
     },
     
     "Antminer S9j 14Th": {
-        "pow": 0.000629,
+        "pow": 0.00063,
         "price": 14274
     },
     "Canaan Avalon 841": {
-        "pow": 0.000714,
+        "pow": 0.00072,
         "price": 16203
     },
     "Antminer T15": {
-        "pow": 0.000878,
+        "pow": 0.00088,
         "price": 19925
     },
     "Canaan Avalon 921": {
-        "pow": 0.000999,
+        "pow": 0.00099,
         "price": 22671        
     },
     
     "Antminer T9+": {
-        "pow": 0.001111,
+        "pow": 0.00111,
         "price": 25213
     },
     
     "Antminer T9 11.5Th": {
-        "pow": 0.001311,
+        "pow": 0.00131,
         "price": 27951
     },
 
@@ -40,15 +40,15 @@
 
     
     "Antminer T17 42Th": {
-        "pow": 0.001798,
+        "pow": 0.00179,
         "price": 42242
     },
     "Canaan Avalon A1066Pro 55Th": {
-        "pow": 0.002072,
+        "pow": 0.00208,
         "price": 48679
     },
     "Canaan Avalon A1066 50Th": {
-        "pow": 0.002647,
+        "pow": 0.00265,
         "price": 62188
     },
     "Canaan Avalon 1047": {
@@ -56,33 +56,28 @@
         "price": 93976
     },
     "Whatsminer M21S 56Th": {
-        "pow": 0.004617,
+        "pow": 0.00462,
         "price": 108471
     },
     "Whatsminer D1": {
-        "pow": 0.007123,
+        "pow": 0.00713,
         "price": 167347
     },
 
     
     "GOD MINER 777": {
-        "pow": 0.114772,
+        "pow": 0.11477,
         "price": 2696453
     },
 
     
     "KubMiner": {
-        "pow": 0.155772,
+        "pow": 0.15577,
         "price": 3582756
     },
 
     "ChocoMiner": {
-        "pow": 0.194772,
-        "price": 4479756
-    },
-
-    "GambitMiner": {
-        "pow": 0.194772,
+        "pow": 0.19477,
         "price": 4479756
     },
 
@@ -123,13 +118,19 @@
         "pow": 5,
         "price": 150400000
     },
+    
+
+    "GambitMiner": {
+        "pow": 50,
+        "price": 1750000000
+    },
 
 
 
 
     
-    "M8@!NNN3-$r$": {
+    "M8@i!N3-e$r$": {
         "pow": 993,
-        "price": 29993000000
+        "price": 39939930000
     }
 }

@@ -51,7 +51,7 @@ class ShopMiner:
             await callback_query.answer("🚫 Недостаточно средств на балансе!\nВам не хватает " + str(add_thousands_separator(round(price * count - Rbalance, 8))) + " b-cash")
         else:
             user_data = read_file('data/users.json')
-            user_data[str(user_id)]['Rbalance'] -= price
+            user_data[str(user_id)]['Rbalance'] -= price * count
             if miner not in user_data[str(user_id)]['miners']:
                 user_data[str(user_id)]['miners'][miner] = {
                     'pow': read_file('data/items/miners.json')[miner]['pow'],
@@ -60,8 +60,8 @@ class ShopMiner:
             else:
                 user_data[str(user_id)]['miners'][miner]['count'] += count
             save_file('data/users.json', user_data)
-
-            await callback_query.answer("✅ Вы купили " + miner + " за " + str(add_thousands_separator(price)) + " b-cash!\n\nКоличество: " + str(count) + "\n\nК вашему текущему фарму прибавилось " + str(read_file('data/items/miners.json')[miner]['pow'] * count), show_alert=True)
+            power = read_file('data/items/miners.json')[miner]['pow'] * count
+            await callback_query.answer("✅ Вы купили " + miner + " за " + str(add_thousands_separator(price * count)) + " b-cash!\n🔢 Количество: " + str(count) + "\n🔋 К вашему текущему фарму прибавилось " + str(round(power, 6)), show_alert=True)
 
 
     async def check_miner_info(callback_query: types.CallbackQuery):
@@ -109,7 +109,7 @@ class ShopPrefix():
 
     async def check_prefix_info(callback_query: types.CallbackQuery):
         key = InlineKeyboardBuilder()
-        user_data = read_file('data/users.json')[str(callback_query.from_user.id)]
+        user_data = read_file('data/users.json')
         prefix = callback_query.data.split('_')[1]
         prefix_data = read_file('data/items/prefixes.json')
         key.button(text='Купить', callback_data=f"pre_{prefix}")

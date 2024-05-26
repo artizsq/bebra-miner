@@ -21,15 +21,15 @@ async def update_current_shop(bot: Bot):
     data = Data()
     shop_data = read_file('data/items/miners.json')
     current_shop = read_file('data/shop/miners.json')
-    
+
     current_shop.clear()  # Очищаем текущий магазин
-    
-    # Выбираем уникальные 4 предмета
+
+    # Выбираем уникальные 6 предметов
     random_items = random.sample(list(shop_data), k=6)
     print(random_items)
 
     current_shop = random_items
-    
+
     save_file('data/shop/miners.json', current_shop)
 
     prefixes = read_file('data/items/prefixes.json')
@@ -37,9 +37,13 @@ async def update_current_shop(bot: Bot):
 
     prefix_shop.clear()  # Очищаем текущий магазин
 
-    # Выбираем уникальные 4 предмета
-    random_items = random.sample(list(prefixes), k=4)
-    prefix_shop = random_items
+    # Выбираем уникальные 4 предмета с параметром "shop": true
+    random_prefixes = []
+    for prefix in prefixes:
+        if prefixes[prefix]['shop'] == True:
+            random_prefixes.append(prefix)
+    random_prefixes = random.sample(random_prefixes, k=4)
+    prefix_shop = random_prefixes
 
     save_file('data/shop/prefixes.json', prefix_shop)
 

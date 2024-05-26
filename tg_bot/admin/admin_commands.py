@@ -119,9 +119,33 @@ async def add_or_sub_balance(message: types.Message, state: FSMContext):
     await message.reply("Баланс обновлен.")
     await state.clear()
 
-async def ban_user_action(message: types.Message, state: FSMContext):
-    user_data = read_file('data/users.json')
-    user_data[str(message.from_user.id)]['ban'] = True
-    save_file('data/users.json', user_data)
-    await message.reply("Пользователь забанен.")
+async def send_messages_to_users(callback_qeury: types.CallbackQuery, state: FSMContext):
+    await state.set_state(Admin.message)
+    key = InlineKeyboardBuilder()
+    key.button(text="Отмена", callback_data="cancel")
+    await callback_qeury.message.answer("Введите сообщение для рассылки: ", reply_markup=key.as_markup())
+
+
+async def send_message_text(message: types.Message, state: FSMContext, bot: Bot):
+    data = read_file('data/users.json')
+    c = 0
+    for user in data:
+        try:
+            await bot.send_message(user, message.text)
+        except:
+            c += 1
+        
+    await message.reply(f"Рассылка завершена!\nОтправлено: {len(data) - c}\nНе отправлено: {c}.")
+    await state.clear()
+
+async def send_message_photo(message: types.Message, state: FSMContext, bot: Bot):
+    data = read_file('data/users.json')
+    c = 0
+    for user in data:
+        try:
+            await bot.send_photo(user, message.photo[0].file_id, caption=message.caption)
+        except:
+            c += 1
+
+    await message.reply(f"Рассылка завершена!\nОтправлено: {len(data) - c}\nНе отправлено: {c}.")
     await state.clear()

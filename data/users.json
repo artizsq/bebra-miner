@@ -1,10 +1,10 @@
 {
     "2093823215": {
-        "Bbalance": 0.0001,
-        "Rbalance": 5000000,
+        "Bbalance": 36504.0,
+        "Rbalance": 9533256000.0,
         "miners": {
             "Antminer S9 13.5Th PC": {
-                "pow": 5e-05,
+                "pow": 0.0005,
                 "count": 1
             },
             "Canaan Avalon 1047": {
@@ -33,16 +33,16 @@
             },
             "PlanetMiner": {
                 "pow": 1.8,
-                "count": 0
+                "count": 120
             }
         },
         "clan": null,
-        "user_prefix": "Виртуальный майнинг-инженер",
+        "user_prefix": "Администратор",
         "prefix": [
             "Бета-тестер",
             "Администратор",
             "Рил Гей",
-            "И Пидорас",
+            "Лучший просто",
             "Криптовалютный магнат",
             "Облачный шахтёр",
             "Блокчейн-стратег",
@@ -95,7 +95,7 @@
         ]
     },
     "711082703": {
-        "Bbalance": 0.012,
+        "Bbalance": 0.0967,
         "Rbalance": 13589,
         "miners": {
             "Antminer S9 13.5Th PC": {
@@ -114,8 +114,8 @@
         ]
     },
     "948900087": {
-        "Bbalance": 408.37086,
-        "Rbalance": 10131262.69394,
+        "Bbalance": 500.0,
+        "Rbalance": 8971852.75314,
         "miners": {
             "Antminer S9 13.5Th PC": {
                 "pow": 0.0005,
@@ -164,20 +164,24 @@
             "PlanetMiner": {
                 "pow": 1.8,
                 "count": 1
+            },
+            "Kosmoiner": {
+                "pow": 0.33333,
+                "count": 1085
             }
         },
         "clan": null,
-        "user_prefix": "Криптовалютный магнат",
+        "user_prefix": "The God of Mining",
         "prefix": [
             "Бета-тестер",
             "Лох",
             "Главный гей",
-            "Админ главнее Тимура",
             "Анимешник",
             "Блокчейн-аналитик",
             "Монетный король",
             "Криптовалютный магнат",
-            "Виртуальный майнинг-инженер"
+            "Виртуальный майнинг-инженер",
+            "The God of Mining"
         ]
     },
     "1776301337": {
@@ -302,8 +306,8 @@
         ]
     },
     "5106379352": {
-        "Bbalance": 0.02783,
-        "Rbalance": 69850.44826,
+        "Bbalance": 4.41148,
+        "Rbalance": 569850.44826,
         "miners": {
             "Antminer S9 13.5Th PC": {
                 "pow": 0.0005,
@@ -327,7 +331,7 @@
             }
         },
         "clan": null,
-        "user_prefix": "Тестировщик",
+        "user_prefix": "Бета-тестер",
         "prefix": [
             "Бета-тестер",
             "Тестировщик"
@@ -363,5 +367,50 @@
         "prefix": [
             "Лизка"
         ]
+    },
+    "815065113": {
+        "Bbalance": 0,
+        "Rbalance": 0,
+        "ban": false,
+        "miners": {
+            "Antminer S9 13.5Th PC": {
+                "pow": 0.0005,
+                "count": 1
+            }
+        },
+        "user_prefix": "Игрок",
+        "prefix": [
+            "Игрок"
+        ]
+    },
+    "776887973": {
+        "Bbalance": 0.015,
+        "Rbalance": 0,
+        "ban": false,
+        "miners": {
+            "Antminer S9 13.5Th PC": {
+                "pow": 0.0005,
+                "count": 1
+            }
+        },
+        "user_prefix": "Игрок",
+        "prefix": [
+            "Игрок"
+        ]
+    },
+    "1111156616": {
+        "Bbalance": 0.008,
+        "Rbalance": 0,
+        "ban": false,
+        "miners": {
+            "Antminer S9 13.5Th PC": {
+                "pow": 0.0005,
+                "count": 1
+            }
+        },
+        "user_prefix": "Игрок",
+        "prefix": [
+            "Игрок"
+        ]
     }
-}
+}  

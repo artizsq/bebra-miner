@@ -1,94 +1,137 @@
 {
     "Криптодобытчик": {
         "price": 10000,
-        "ability": "add_3"
+        "ability": "add_5",
+        "shop": true
     },
     "Майнер-эксперт": {
         "price": 50000,
-        "ability": "speed_1"
+        "ability": "speed_1",
+        "shop": true
     },
     "Блокчейн-стратег": {
         "price": 65000,
-        "ability": "shop_3"
+        "ability": "shop_3",
+        "shop": true
     },
     "Блокчейн-аналитик": {
         "price": 100000,
-        "ability": "show_rate"
+        "ability": "show_rate",
+        "shop": true
     },
     "Блокчеин-профи": {
         "price": 200000,
-        "ability": "add_8"
+        "ability": "add_10",
+        "shop": true
     },
     "ASIC-мастер": {
         "price": 500000,
-        "ability": "speed_3"
+        "ability": "speed_2",
+        "shop": true
     },
     "Монетный король": {
         "price": 800000,
-        "ability": "shop_5"
+        "ability": "shop_5",
+        "shop": true
     },
     "Майнинг-гений": {
         "price": 1000000,
-        "ability": "add_12"
+        "ability": "add_15",
+        "shop": true
     },
     "Облачный шахтёр": {
         "price": 1500000,
-        "ability": "speed_5"
+        "ability": "speed_3",
+        "shop": true
     },
     "Легенда майнинга": {
         "price": 10000000,
-        "ability": "shop_10"
+        "ability": "shop_10",
+        "shop": true
     },
     "Блокчейн-разработчик": {
         "price": 100000000,
-        "ability": "add_17"
+        "ability": "add_20",
+        "shop": true
     },
     "Мастер ASIC-технологий": {
         "price": 2500000,
-        "ability": "speed_7"
+        "ability": "speed_4",
+        "shop": true
     },
     "Специалист по криптовалюте": {
         "price": 5000000,
-        "ability": "shop_8"
+        "ability": "shop_8",
+        "shop": true
     },
     "Исследователь блокчейна": {
         "price": 7500000,
-        "ability":  "add_11"
+        "ability":  "add_30",
+        "shop": true
     },
     "Эксперт по смарт-контрактам": {
         "price": 15000000,
-        "ability": "speed_10"
+        "ability": "speed_5",
+        "shop": true
     },
     "Виртуальный майнинг-инженер": {
         "price": 30000000,
-        "ability": "shop_22"
+        "ability": "shop_22",
+        "shop": true
     },
     "Криптоспециалист": {
         "price": 50000000,
-        "ability": "add_30"
+        "ability": "add_45",
+        "shop": true
     },
     "Майнинг-король": {
         "price": 80000000,
-        "ability": "speed_11"
+        "ability": "speed_6",
+        "shop": true
     },
     "Майнинг-мастер": {
         "price": 120000000,
-        "ability": "shop_35"
+        "ability": "shop_35",
+        "shop": true
     },
     "Блокчейн-гуру": {
         "price": 200000000,
-        "ability": "add_35"
+        "ability": "add_60",
+        "shop": true
     },
     "Криптовалютный магнат": {
         "price": 500000000,
-        "ability": "speed_12"
+        "ability": "speed_7",
+        "shop": true
     },
     "Титан майнинга": {
         "price": 1000000000,
-        "ability": "shop_40"
+        "ability": "shop_40",
+        "shop": true
     },
     "The God of Mining": {
         "price": 100000000000,
-        "ability": "add_50"
+        "ability": "add_100",
+        "shop": true
+    },
+    "Администратор": {
+        "price": 0,
+        "ability": "admin",
+        "shop": false
+    },
+    "Бета-тестер": {
+        "price": 0,
+        "ability": "beta",
+        "shop": false
+    },
+    "Тестировщик": {
+        "price": 0,
+        "ability": "tester",
+        "shop": false
+    },
+    "Игрок": {
+        "price": 0,
+        "ability": "player",
+        "shop": false
     }
 }

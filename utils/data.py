@@ -88,7 +88,20 @@ def retranslate_prefix(prefix):
     
     elif "spadd" in data[prefix]['ability']:
         return f"К вашему текущему фарму прибавляется {data[prefix]['ability'].split('_')[1]}% от общей мощности майнеров, а также скорость майнинга на {data[prefix]['ability'].split('_')[1]} минут."
-
+    
+    elif "beta" in data[prefix]['ability']:
+        return "Спасибо что были с нами во время бета теста❤️"
+    
+    elif "player" in data[prefix]['ability']:
+        return "У данного префикса нет способности."
+    
+    elif "admin" in data[prefix]['ability']:
+        return "Просто введи команду /panel в чат и сам все узнаешь."
+    
+    elif "tester" in data[prefix]['ability']:
+        return "Вы являетесь тестировщиком бота. У вас нет способностей."
+    else:
+        return "К сожалению, я не могу распознать вашу способность :("
 
 def convert_number(number_str):
     number = float(number_str.split('e-')[0]) * (10 ** int(number_str.split('e-')[1]))

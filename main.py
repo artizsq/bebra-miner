@@ -20,9 +20,9 @@ from tg_bot.admin.admin_commands import (admin_panel,
                                     update_shop_admin,
                                     send_BD, Admin, 
                                     add_or_sub_balance, add_balance, 
-                                    sub_balance, ban_user, ban_user_action, 
+                                    sub_balance, ban_user, 
                                     actions_with_balance, update_rate_button,
-                                    update_event_admin)
+                                    update_event_admin, send_messages_to_users, send_message_text, send_message_photo)
 
 
 from tg_bot.handlers.profile import Profile
@@ -144,10 +144,12 @@ async def main():
     dp.callback_query.register(ban_user, F.data == "ban", IsAdmin())
     dp.message.register(actions_with_balance, Admin.user_id, IsAdmin())
     dp.message.register(add_or_sub_balance, Admin.balance, IsAdmin())
-    dp.message.register(ban_user_action, Admin.user_id, IsAdmin())
     dp.callback_query.register(update_shop_admin, F.data == "update_shop", IsAdmin())
     dp.callback_query.register(update_rate_button, F.data == "rate", IsAdmin())
     dp.callback_query.register(update_event_admin, F.data == "update_event", IsAdmin())
+    dp.callback_query.register(send_messages_to_users, F.data == "send", IsAdmin())
+    dp.message.register(send_message_text, F.text, Admin.message, IsAdmin())
+    dp.message.register(send_message_photo, F.photo, Admin.message, IsAdmin())
 
 
     
