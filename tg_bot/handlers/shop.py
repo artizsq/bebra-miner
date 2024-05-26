@@ -25,7 +25,8 @@ class ShopMiner:
             if miner not in user_data[str(callback_query.from_user.id)]['miners']:
                 user_data[str(callback_query.from_user.id)]['miners'][miner] = {
                     'pow': miner_data[miner]['pow'],
-                    'count': count
+                    'count': count,
+                    'event': data.event_name
                 }
                 save_file('data/users.json', user_data)
             else:
@@ -55,7 +56,8 @@ class ShopMiner:
             if miner not in user_data[str(user_id)]['miners']:
                 user_data[str(user_id)]['miners'][miner] = {
                     'pow': read_file('data/items/miners.json')[miner]['pow'],
-                    'count': count
+                    'count': count,
+                    'event': ''
                 }
             else:
                 user_data[str(user_id)]['miners'][miner]['count'] += count

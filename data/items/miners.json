@@ -2,103 +2,124 @@
     
     "Antminer S9 13.5Th PC": {
         "pow": 0.0005,
-        "price": 10000
+        "price": 10000,
+        "shop": true
     },
     
     "Antminer S9j 14Th": {
         "pow": 0.00063,
-        "price": 14274
+        "price": 14274,
+        "shop": true
     },
     "Canaan Avalon 841": {
         "pow": 0.00072,
-        "price": 16203
+        "price": 16203,
+        "shop": true
     },
     "Antminer T15": {
         "pow": 0.00088,
-        "price": 19925
+        "price": 19925,
+        "shop": true
     },
     "Canaan Avalon 921": {
         "pow": 0.00099,
-        "price": 22671        
+        "price": 22671  ,
+        "shop": true      
     },
     
     "Antminer T9+": {
         "pow": 0.00111,
-        "price": 25213
+        "price": 25213,
+        "shop": true
     },
     
     "Antminer T9 11.5Th": {
         "pow": 0.00131,
-        "price": 27951
+        "price": 27951,
+        "shop": true
     },
 
     "ApolloMiner R&T": {
         "pow": 0.0015,
-        "price": 30690
+        "price": 30690,
+        "shop": true
     },
 
 
     
     "Antminer T17 42Th": {
         "pow": 0.00179,
-        "price": 42242
+        "price": 42242,
+        "shop": true
     },
     "Canaan Avalon A1066Pro 55Th": {
         "pow": 0.00208,
-        "price": 48679
+        "price": 48679,
+        "shop": true
     },
     "Canaan Avalon A1066 50Th": {
         "pow": 0.00265,
-        "price": 62188
+        "price": 62188,
+        "shop": true
     },
     "Canaan Avalon 1047": {
         "pow": 0.004,
-        "price": 93976
+        "price": 93976,
+        "shop": true
     },
     "Whatsminer M21S 56Th": {
         "pow": 0.00462,
-        "price": 108471
+        "price": 108471,
+        "shop": true
     },
     "Whatsminer D1": {
         "pow": 0.00713,
-        "price": 167347
+        "price": 167347,
+        "shop": true
     },
 
     
     "GOD MINER 777": {
         "pow": 0.11477,
-        "price": 2696453
+        "price": 2696453,
+        "shop": true
     },
 
     
     "KubMiner": {
         "pow": 0.15577,
-        "price": 3582756
+        "price": 3582756,
+        "shop": true
     },
 
     "ChocoMiner": {
         "pow": 0.19477,
-        "price": 4479756
+        "price": 4479756,
+        "shop": true
     },
 
     "TitanMiner": {
         "pow": 0.23111,
-        "price": 5315530
+        "price": 5315530,
+        "shop": true
     },
 
     "PocketMiner": {
         "pow": 0.29117,
-        "price": 6696910
+        "price": 6696910,
+        "shop": true
     },
 
     "Kosmoiner": {
         "pow": 0.33333,
-        "price": 7666590
+        "price": 7666590,
+        "shop": true
     },
 
     "RealGodMiner": {
         "pow": 0.55555,
-        "price": 12777650
+        "price": 12777650,
+        "shop": true
     },
 
 
@@ -107,7 +128,8 @@
     
     "PlanetMiner": {
         "pow": 1.8,
-        "price": 50400000
+        "price": 50400000,
+        "shop": true
     },
 
 
@@ -116,13 +138,15 @@
     
     ".JarMiner": {
         "pow": 5,
-        "price": 150400000
+        "price": 150400000,
+        "shop": true
     },
     
 
     "GambitMiner": {
         "pow": 50,
-        "price": 1750000000
+        "price": 1750000000,
+        "shop": true
     },
 
 
@@ -131,6 +155,18 @@
     
     "M8@i!N3-e$r$": {
         "pow": 993,
-        "price": 39939930000
+        "price": 39939930000,
+        "shop": true
+    },
+
+
+
+
+    "№1 Reward Miner": {
+        "pow": 0.01,
+        "price": "бесплатно",
+        "shop": false,
+        "info": "Майнер из промокода"
     }
+    
 }

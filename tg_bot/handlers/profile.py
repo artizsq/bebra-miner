@@ -89,28 +89,41 @@ class Profile:
 
 
     async def miner_info(callback_query: types.CallbackQuery):
-        key = InlineKeyboardBuilder()
-        key.button(text="Назад", callback_data="back_m")
-        miner = callback_query.data.split('_')[1]
-        data = read_file("data/items/miners.json")
-        udata = read_file("data/users.json")
         try:
-            mdata = data[miner]
-        except KeyError:
-            data = read_file(f"data/{Data().event_name}/event_miners.json")
-            mdata = data[miner]
-        count = udata[str(callback_query.from_user.id)]["miners"][miner]["count"]
-        await callback_query.message.edit_text(f"""
+            
+            udata = read_file('data/users.json')
+            miner = callback_query.data.split('_')[1]
+            miners = udata[str(callback_query.from_user.id)]['miners']
+            event_miners = read_file(f'data/{udata[str(callback_query.from_user.id)]["miners"][miner]["event"]}/event_miners.json')
+            
+            if miner in event_miners:
+                mdata = event_miners[miner]
+                event = mdata['event'] + ' (' + mdata['emoji'] + ')'
+            else:
+                mdata = read_file('data/items/miners.json')[miner]
+                event = "Не найден"
+
+
+            count = miners[miner]['count']
+            key = InlineKeyboardBuilder()
+            key.button(text="Назад", callback_data="back_m")
+            await callback_query.message.edit_text(f"""
 ℹ️<b>Информация о майнере {miner}</b>
 
 ▶️ Название: {miner}
 🔋 Мощность (1 штука): {mdata['pow']} BC/15 мин
-{f'⌛️ Ивент: {Data().event_name} ({mdata["emoji"]})' if miner in read_file(f'data/{Data().event_name}/event_miners.json') else ""}
+⌛️ Ивент: {event}
 
 💵 Цена: {mdata['price']} b-cash
-💪 Мощность (всех): {mdata['pow']*count} BC/15 мин
+💪 Мощность (всех): {round(mdata['pow']*count, 6)} BC/15 мин
 📝 Кол-во майнеров: {count}
-                                            """, parse_mode='HTML', reply_markup=key.as_markup())
+    """, parse_mode='HTML', reply_markup=key.as_markup())
+
+        except Exception as e:
+            await callback_query.message.edit_text("⚠️ Ошибка при получении списка машин. Пожалуйста, сообщите администратору.", parse_mode='HTML')
+            print(e)
+
+            
     
 
     async def all_user_prefixes(callback_query: types.CallbackQuery):
@@ -126,21 +139,22 @@ class Profile:
 
 
     async def all_user_miners(callback_query: types.CallbackQuery):
+        try:
+            data = read_file('data/users.json')
+            miners = data[str(callback_query.from_user.id)]['miners']
+            key = InlineKeyboardBuilder()
+            for miner in miners:
+                event_miners = read_file(f'data/{data[str(callback_query.from_user.id)]["miners"][miner]["event"]}/event_miners.json')
+                if miner in event_miners:
+                    emoji = event_miners[miner]['emoji']
+                else:
+                    emoji = ''
+                key.button(text=f'{emoji} {miner} | {miners[miner]["count"]}', callback_data=f"MI_{miner}")
+            key.button(text="Назад", callback_data="back_profile")
+            key.adjust(1)
+            await callback_query.message.edit_text("🌟 Список всех ваших машин", parse_mode='HTML', reply_markup=key.as_markup())
+        except Exception as e:
 
-        data = read_file('data/users.json')
-        miners = data[str(callback_query.from_user.id)]['miners']
-        key = InlineKeyboardBuilder()
-        user_data = read_file('data/users.json')
-        for miner in miners:
-            if miner in read_file(f"data/{Data().event_name}/event_miners.json"):
-                emoji = read_file(f"data/{Data().event_name}/event_miners.json")[miner]['emoji']
-                key.button(text=f'{emoji} {miner} | {user_data[str(callback_query.from_user.id)]["miners"][miner]["count"]}', callback_data=f"MI_{miner}")
-            else:
-                key.button(text=f'{miner} | {user_data[str(callback_query.from_user.id)]["miners"][miner]["count"]}', callback_data=f"MI_{miner}")
-        key.button(text="Назад", callback_data="back_profile")
-        key.adjust(1)
+            await callback_query.message.edit_text("⚠️ Ошибка при получении списка машин. Пожалуйста, сообщите администратору.", parse_mode='HTML')
         
-
-        await callback_query.message.edit_text("📝 Список всех ваших машин\n\n<i>[эмодзи ивента] Название машины | Количество машин</i>",parse_mode='HTML', reply_markup=key.as_markup())
-
     

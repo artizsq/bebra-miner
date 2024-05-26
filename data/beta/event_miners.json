@@ -2,61 +2,73 @@
     "BETA Miner T5": {
         "pow": 0.000555,
         "price": 8633,
-        "emoji": "🟥"
+        "emoji": "🟥",
+        "event": "beta"
     },
     "BETA Miner T6": {
         "pow": 0.005555,
         "price": 86411,
-        "emoji": "🟥"
+        "emoji": "🟥",
+        "event": "beta"
     },
     "BETA Miner T7": {
         "pow": 0.015555,
         "price": 241966,
-        "emoji": "🟥"
+        "emoji": "🟥",
+        "event": "beta"
     },
     "BETA Miner T7+": {
         "pow": 0.115555,
         "price": 1797522,
-        "emoji": "🟥"
+        "emoji": "🟥",
+        "event": "beta"
     },
     "BETA Doxy T9": {
         "pow": 1.5e-05,
         "price": 233,
-        "emoji": "🟥"
+        "emoji": "🟥",
+        "event": "beta"
     },
     "BETA Pashale X": {
         "pow": 5.5e-05,
         "price": 855,
-        "emoji": "🟥"
+        "emoji": "🟥",
+        "event": "beta"
     },
     "BETA Rigeon": {
         "pow": 9.5e-05,
         "price": 1477,
-        "emoji": "🟥"
+        "emoji": "🟥",
+        "event": "beta"
     },
     "BETA FoxFire P+": {
         "pow": 0.000125,
         "price": 1944,
-        "emoji": "🟥"
+        "emoji": "🟥",
+        "event": "beta"
     },
     "BETA EX78": {
         "pow": 0.000235,
         "price": 3255,
-        "emoji": "🟥"
+        "emoji": "🟥",
+        "event": "beta"
     },
     "404": {
         "pow": 0.007123,
         "price": 110802,
-        "emoji": "🟥"
+        "emoji": "🟥",
+        "event": "beta"
     },
     "BETA ERROR": {
         "pow": 0.011111,
         "price": 172837,
-        "emoji": "🟥"
+        "emoji": "🟥",
+        "event": "beta"
     },
     "BETA ERRORS 404": {
         "pow": 0.114772,
         "price": 1785342,
-        "emoji": "🟥"
+        "emoji": "🟥",
+        "event": "beta"
     }
 }

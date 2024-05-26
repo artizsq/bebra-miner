@@ -19,13 +19,17 @@ async def get_bebra_coins(plus, chat_id):
 
 async def update_current_shop(bot: Bot):
     data = Data()
-    shop_data = read_file('data/items/miners.json')
+    miner_data = read_file('data/items/miners.json')
     current_shop = read_file('data/shop/miners.json')
 
     current_shop.clear()  # Очищаем текущий магазин
 
     # Выбираем уникальные 6 предметов
-    random_items = random.sample(list(shop_data), k=6)
+    random_items = []
+    for miner in miner_data:
+        if miner_data[miner]['shop'] == True:
+            random_items.append(miner_data)
+    random_items = random.sample(list(miner_data), k=6)
     print(random_items)
 
     current_shop = random_items

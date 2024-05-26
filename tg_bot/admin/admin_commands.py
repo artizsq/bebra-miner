@@ -123,7 +123,7 @@ async def send_messages_to_users(callback_qeury: types.CallbackQuery, state: FSM
     await state.set_state(Admin.message)
     key = InlineKeyboardBuilder()
     key.button(text="Отмена", callback_data="cancel")
-    await callback_qeury.message.answer("Введите сообщение для рассылки: ", reply_markup=key.as_markup())
+    await callback_qeury.message.edit_text("Введите сообщение для рассылки: ", reply_markup=key.as_markup())
 
 
 async def send_message_text(message: types.Message, state: FSMContext, bot: Bot):

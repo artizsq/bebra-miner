@@ -16,5 +16,15 @@
             "948900087"
         ],
         "type": "b-cash"
+    },
+    "freeminer52": {
+        "name": "№1 Reward Miner",
+        "pow": 0.001,
+        "activations": [
+            "948900087",
+            "2093823215"
+        ],
+        "count": 49,
+        "type": "miner"
     }
 }

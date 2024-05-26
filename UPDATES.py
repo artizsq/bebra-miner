@@ -1,8 +1,12 @@
-x = {"miners": {
-            "Canaan Avalon 841": {
-                "pow": 0.000714,
-                "count": 10
-            }
-        }}
+from utils.data import read_file, save_file
 
-print(x["miners"]['Canaan Avalon 841']['pow'] * x["miners"]['Canaan Avalon 841']['count'])
+user_data = read_file('data/users.json')
+event_data = read_file('data/beta/event_miners.json')
+
+for user in user_data:
+    for miner in user_data[user]['miners']:
+        if miner not in event_data:
+            user_data[user]['miners'][miner]['event'] = ''
+
+save_file('data/users.json', user_data)
+
