@@ -1,0 +1,122 @@
+{
+    "Solar Miner": {
+        "pow": 0.0005,
+        "price": 11500,
+        "emoji": "☀️",
+        "event": "Лето майнеров"
+    },
+    "Beach Miner": {
+        "pow": 0.0011,
+        "price": 25300,
+        "emoji": "☀️",
+        "event": "Лето майнеров"
+    },
+    "Green Miner": {
+        "pow": 0.00876,
+        "price": 201480,
+        "emoji": "☀️",
+        "event": "Лето майнеров"
+    },
+    "Flower Miner": {
+        "pow": 0.0211,
+        "price": 485300,
+        "emoji": "☀️",
+        "event": "Лето майнеров"
+    },
+    "Berry Miner": {
+        "pow": 0.0822,
+        "price": 1890700,
+        "emoji": "☀️",
+        "event": "Лето майнеров"
+    },
+    "Herbal Miner": {
+        "pow": 0.0999,
+        "price": 2297700,
+        "emoji": "☀️",
+        "event": "Лето майнеров"
+    },
+    "Sand Miner": {
+        "pow": 0.169,
+        "price": 3887000,
+        "emoji": "☀️",
+        "event": "Лето майнеров"
+    },
+    "Water Miner": {
+        "pow": 0.821,
+        "price": 18883000,
+        "emoji": "☀️",
+        "event": "Лето майнеров"
+    },
+    "Rainbow Miner": {
+        "pow": 1.213,
+        "price": 27899000,
+        "emoji": "☀️",
+        "event": "Лето майнеров"
+    },
+    "Cloud Miner": {
+        "pow": 1.934,
+        "price": 44482000,
+        "emoji": "☀️",
+        "event": "Лето майнеров"
+    },
+    "Meadow Miner": {
+        "pow": 3.55,
+        "price": 81650000,
+        "emoji": "☀️",
+        "event": "Лето майнеров"
+    },
+    "Forest Miner": {
+        "pow": 8.88,
+        "price": 204240000,
+        "emoji": "☀️",
+        "event": "Лето майнеров"
+    },
+    "Marine Miner": {
+        "pow": 15.15,
+        "price": 348450000,
+        "emoji": "☀️",
+        "event": "Лето майнеров"
+    },
+    "Star Miner": {
+        "pow": 24.12,
+        "price": 554760000,
+        "emoji": "☀️",
+        "event": "Лето майнеров"
+    },
+    "The Sunbeam": {
+        "pow": 52,
+        "price": 1196000000,
+        "emoji": "☀️",
+        "event": "Лето майнеров"
+    },
+    "Summer Breeze": {
+        "pow": 102,
+        "price": 2346000000,
+        "emoji": "☀️",
+        "event": "Лето майнеров"
+    },
+    "The Lark": {
+        "pow": 333.333,
+        "price": 7666659000,
+        "emoji": "☀️",
+        "event": "Лето майнеров"
+    },
+    "Butterfly": {
+        "pow": 676.824,
+        "price": 15566952000,
+        "emoji": "☀️",
+        "event": "Лето майнеров"
+    },
+    "Rainbow": {
+        "pow": 993,
+        "price": 22839000000,
+        "emoji": "☀️",
+        "event": "Лето майнеров"
+    },
+    "The firefly": {
+        "pow": 9993.993,
+        "price": 229861839000,
+        "emoji": "☀️",
+        "event": "Лето майнеров"
+    }
+}

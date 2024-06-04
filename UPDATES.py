@@ -1,12 +1,26 @@
+import random
 from utils.data import read_file, save_file
 
-user_data = read_file('data/users.json')
-event_data = read_file('data/beta/event_miners.json')
-
-for user in user_data:
-    for miner in user_data[user]['miners']:
-        if miner not in event_data:
-            user_data[user]['miners'][miner]['event'] = ''
-
-save_file('data/users.json', user_data)
+miners = [
+    "Solar miner",
+    "Beach miner",
+    "Green miner",
+    "Flower miner",
+    "Berry miner",
+    "Herbal miner",
+    "Sand miner",
+    "Water miner",
+    "Rainbow miner",
+    "Cloud miner",
+    "Meadow miner",
+    "Forest miner",
+    "Marine miner",
+    "Star miner",
+    "The sunbeam",
+    "Summer breeze",
+    "The lark",
+    "Butterfly",
+    "Rainbow",
+    "The firefly"
+]
 

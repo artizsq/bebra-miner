@@ -1,7 +1,7 @@
 from aiogram import types
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from utils import data
-from utils.data import read_file, save_file
+from utils.data import read_file, save_file, converter
 from utils.data import add_thousands_separator, retranslate_prefix
 
 from utils.parsing import Data
@@ -10,6 +10,7 @@ from utils.parsing import Data
 
 class Profile:
     async def profile_command_inline(callback_query: types.CallbackQuery):
+        converter(callback_query.from_user.id)
         key = InlineKeyboardBuilder()
 
         key.button(text='🔋 Мои машины', callback_data='all_miners')
@@ -19,6 +20,7 @@ class Profile:
         Rbalance = read_file('data/users.json')[str(callback_query.from_user.id)]['Rbalance']
         Bbalance = read_file('data/users.json')[str(callback_query.from_user.id)]['Bbalance']
         miners = read_file('data/users.json')[str(callback_query.from_user.id)]['miners']
+        prefix = read_file('data/users.json')[str(callback_query.from_user.id)]['user_prefix']
         count = 0
         money_per_15_min = 0
 
@@ -33,9 +35,11 @@ class Profile:
 🆔 ID: {callback_query.from_user.id}
 
 🔰 Префикс: <b>{read_file('data/users.json')[str(callback_query.from_user.id)]['user_prefix']}</b>
-💸 Баланс b-cash: {add_thousands_separator(round(Rbalance, 8))}
+⭐️ Способность: <i>{retranslate_prefix(prefix)}</i>
+
+💸 Баланс b-cash: {add_thousands_separator(round(Rbalance, 5))}
 🪙 Баланас BebraCoin'ов: {add_thousands_separator(round(Bbalance, 8))}
-💪 Мощность фермы: {round(money_per_15_min, 8)} BC/15 мин. (Кол-во машин: {count})
+💪 Мощность фермы: {round(money_per_15_min, 5)} BC/15 мин. ({count} майнеров)
 ➖➖➖➖➖➖➖➖➖➖➖
     """
         await callback_query.message.edit_text(text, reply_markup=key.as_markup())
@@ -43,6 +47,7 @@ class Profile:
 
 
     async def profile_command(message: types.Message):
+        converter(message.from_user.id)
         key = InlineKeyboardBuilder()
 
         key.button(text='🔋 Мои машины', callback_data='all_miners')
@@ -53,6 +58,7 @@ class Profile:
         Bbalance = read_file('data/users.json')[str(message.from_user.id)]['Bbalance']
         miners = read_file('data/users.json')[str(message.from_user.id)]['miners']
         count = 0
+        prefix = read_file('data/users.json')[str(message.from_user.id)]['user_prefix']
         money_per_15_min = 0
 
         for miner in miners:
@@ -66,9 +72,11 @@ class Profile:
 🆔 ID: {message.from_user.id}
 
 🔰 Префикс: <b>{read_file('data/users.json')[str(message.from_user.id)]['user_prefix']}</b>
-💸 Баланс b-cash: {add_thousands_separator(round(Rbalance, 8))}
-🪙 Баланас BebraCoin'ов: {add_thousands_separator(round(Bbalance, 8))}
-💪 Мощность фермы: {round(money_per_15_min, 8)} BC/15 мин. (Кол-во машин: {count})
+⭐️ Способность: <i>{retranslate_prefix(prefix)}</i>
+
+💸 Баланс b-cash: {add_thousands_separator(round(Rbalance, 5))}
+🪙 Баланас BebraCoin'ов: {add_thousands_separator(round(Bbalance, 5))}
+💪 Мощность фермы: {round(money_per_15_min, 5)} BC/15 мин. ({count} майнеров)
 ➖➖➖➖➖➖➖➖➖➖➖
 """
         await message.reply(text, reply_markup=key.as_markup())
@@ -89,6 +97,7 @@ class Profile:
 
 
     async def miner_info(callback_query: types.CallbackQuery):
+        converter(callback_query.from_user.id)
         try:
             
             udata = read_file('data/users.json')
@@ -115,7 +124,7 @@ class Profile:
 ⌛️ Ивент: {event}
 
 💵 Цена: {mdata['price']} b-cash
-💪 Мощность (всех): {round(mdata['pow']*count, 6)} BC/15 мин
+💪 Мощность (всех): {round(mdata['pow']*count, 5)} BC/15 мин
 📝 Кол-во майнеров: {count}
     """, parse_mode='HTML', reply_markup=key.as_markup())
 
@@ -139,6 +148,7 @@ class Profile:
 
 
     async def all_user_miners(callback_query: types.CallbackQuery):
+        converter(callback_query.from_user.id)
         try:
             data = read_file('data/users.json')
             miners = data[str(callback_query.from_user.id)]['miners']

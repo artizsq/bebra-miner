@@ -24,19 +24,19 @@
         "event": "beta"
     },
     "BETA Doxy T9": {
-        "pow": 1.5e-05,
+        "pow": 0.15,
         "price": 233,
         "emoji": "🟥",
         "event": "beta"
     },
     "BETA Pashale X": {
-        "pow": 5.5e-05,
+        "pow": 0.25,
         "price": 855,
         "emoji": "🟥",
         "event": "beta"
     },
     "BETA Rigeon": {
-        "pow": 9.5e-05,
+        "pow": 0.95,
         "price": 1477,
         "emoji": "🟥",
         "event": "beta"

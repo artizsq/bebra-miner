@@ -1,7 +1,7 @@
 from aiogram import types, Bot
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from utils import data
-from utils.data import read_file
+from utils.data import read_file, converter
 from datetime import datetime, timedelta
 from utils.data import add_thousands_separator, get_ability
 from tg_bot.events import get_bebra_coins
@@ -42,6 +42,7 @@ async def delete_panel(message: types.Message):
 
 
 async def farm_command(message: types.Message, appscheduler: AsyncIOScheduler, bot: Bot):
+    converter(message.from_user.id)
     data.check_user(message.from_user.id)
     miners = read_file('data/users.json')[str(message.from_user.id)]['miners']
     count = 0
@@ -66,6 +67,7 @@ async def farm_command(message: types.Message, appscheduler: AsyncIOScheduler, b
 
 
 async def shop_command(message: types.Message):
+    converter(message.from_user.id)
     data.check_user(message.from_user.id)
     current = datetime.now()
     current_date = ("0" + str(current.day) if current.day < 10 else str(current.day)) + "." + ("0" + str(current.month) if current.month < 10 else str(current.month)) + "." + str(current.year)[2:]
@@ -75,6 +77,7 @@ async def shop_command(message: types.Message):
 
 
 async def trade_command(message: types.Message, bot: Bot):
+    converter(message.from_user.id)
     data.check_user(message.from_user.id)
     key = InlineKeyboardBuilder()
     rate_data = read_file('data/rate_info.json')
@@ -86,10 +89,12 @@ async def trade_command(message: types.Message, bot: Bot):
 
 
 async def ivent_command(message: types.Message):
+    converter(message.from_user.id)
     await message.reply("Ивентовый магазин со своими уникальными товарами\n\nОбновление магазина происходит каждые 12 часов\n", reply_markup=ivent_shop())
 
 
 async def promocode_command(message: types.Message, state: FSMContext):
+    converter(message.from_user.id)
     key = InlineKeyboardBuilder()
     key.button(text="Отмена", callback_data="cancel")
     await message.reply(f"Введите промокод:", reply_markup=key.as_markup())

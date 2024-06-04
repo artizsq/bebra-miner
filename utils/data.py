@@ -107,3 +107,10 @@ def convert_number(number_str):
     number = float(number_str.split('e-')[0]) * (10 ** int(number_str.split('e-')[1]))
     return '{:.5f}'.format(number)
 
+
+def converter(user_id):
+    db = read_file('data/users.json')
+    db[str(user_id)]['Rbalance'] = round(db[str(user_id)]['Rbalance'], 5)
+    db[str(user_id)]['Bbalance'] = round(db[str(user_id)]['Bbalance'], 5)
+    save_file('data/users.json', db)
+

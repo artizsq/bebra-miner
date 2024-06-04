@@ -3,7 +3,7 @@ from typing import List
 
 def get_config():
     config = ConfigParser()
-    config.read('data/config.ini')
+    config.read('data/config.ini', encoding='utf-8')
     return config
 
 
@@ -19,5 +19,5 @@ class Data:
     def update(self, section, option, value):
         self.config.set(section, option, str(value))
 
-        with open('data/config.ini', 'w') as configfile:
+        with open('data/config.ini', 'w', encoding='utf-8') as configfile:
             self.config.write(configfile)

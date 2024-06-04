@@ -32,8 +32,24 @@ class ShopMiner:
             else:
                 user_data[str(callback_query.from_user.id)]['miners'][miner]['count'] += count
             save_file('data/users.json', user_data)
+            price = miner_data[miner]['price'] * count
+            power = miner_data[miner]['pow'] * count
+            money_per_15_min = 0
+            for miner in user_data[str(callback_query.from_user.id)]['miners']:
+                money_per_15_min += user_data[str(callback_query.from_user.id)]['miners'][miner]['pow'] * user_data[str(callback_query.from_user.id)]['miners'][miner]['count']
+            await callback_query.answer(f"""
+➖➖➖➖➖➖
+                                        
+ℹ️ Майнер: {miner}
+💸 Цена: {price}
+💡 Мощность: {add_thousands_separator(power)}
+⚙️ Количество: {count}
 
-            await callback_query.answer("✅ Вы купили " + miner + " за " + str(add_thousands_separator(miner_data[miner]['price'])) + " b-cash!\nКоличество: " + str(count) + "\nК вашему текущему фарму прибавилось +" + str(miner_data[miner]['pow'] * 8), show_alert=True)
+💪 Текущая мощность: {round(money_per_15_min, 6)}
+
+➖➖➖➖➖➖
+""", show_alert=True)
+
 
 
     async def buy_miner(callback_query: types.CallbackQuery):
@@ -48,7 +64,7 @@ class ShopMiner:
             ability = get_ability(callback_query.from_user.id, user_data[str(callback_query.from_user.id)]['user_prefix'])
             if ability.startswith('shop'):
                 price -= miner_data[miner]['price'] * int(ability.split('_')[1]) / 100
-        if Rbalance < price:
+        if Rbalance < price * count:
             await callback_query.answer("🚫 Недостаточно средств на балансе!\nВам не хватает " + str(add_thousands_separator(round(price * count - Rbalance, 8))) + " b-cash")
         else:
             user_data = read_file('data/users.json')
@@ -63,7 +79,21 @@ class ShopMiner:
                 user_data[str(user_id)]['miners'][miner]['count'] += count
             save_file('data/users.json', user_data)
             power = read_file('data/items/miners.json')[miner]['pow'] * count
-            await callback_query.answer("✅ Вы купили " + miner + " за " + str(add_thousands_separator(price * count)) + " b-cash!\n🔢 Количество: " + str(count) + "\n🔋 К вашему текущему фарму прибавилось " + str(round(power, 6)), show_alert=True)
+            money_per_15_min = 0
+            for miner in user_data[str(user_id)]['miners']:
+                money_per_15_min += user_data[str(user_id)]['miners'][miner]['pow'] * user_data[str(user_id)]['miners'][miner]['count']
+            await callback_query.answer(f"""
+➖➖➖➖➖➖
+                                        
+ℹ️ Майнер: {miner}
+💸 Цена: {price}
+💡 Мощность: {add_thousands_separator(power)}
+⚙️ Количество: {count}
+
+💪 Текущая мощность: {round(money_per_15_min, 6)}
+
+➖➖➖➖➖➖
+""", show_alert=True)
 
 
     async def check_miner_info(callback_query: types.CallbackQuery):
@@ -91,7 +121,7 @@ class ShopMiner:
         key.button(text="1", callback_data=f"ev_1_{miner}")
         key.button(text="5", callback_data=f"ev_5_{miner}")
         key.button(text="10", callback_data=f"ev_10_{miner}")
-        await callback_query.message.edit_text(f"❇️ Вы выбрали майнер: {miner}\n💵 Цена: {add_thousands_separator(round(miner_data[miner]['price'], 2))} b-cash\n🔋 Мощность: {int(miner_data[miner]['pow'])} BC/15 мин.", reply_markup=key.as_markup())
+        await callback_query.message.edit_text(f"❇️ Вы выбрали майнер: {miner}\n💵 Цена: {add_thousands_separator(round(miner_data[miner]['price'], 2))} b-cash\n🔋 Мощность: {miner_data[miner]['pow']} BC/15 мин.", reply_markup=key.as_markup())
 
 
 
@@ -135,12 +165,23 @@ class ShopPrefix():
         if user_data[str(callback_query.from_user.id)]['Rbalance'] < prefix_data[prefix]['price']:
             await callback_query.answer("🚫 Недостаточно средств на балансе!\nВам не хватает " + str(add_thousands_separator(round(price - user_data[str(callback_query.from_user.id)]['Rbalance'], 8))) + " b-cash", show_alert=True)
         
-        elif prefix in user_data[str(callback_query.from_user.id)]['prefix']:
-            await callback_query.answer("✅ Вы уже купили этот префикс!", show_alert=True)
+        
         else:
-            user_data[str(callback_query.from_user.id)]['Rbalance'] -= prefix_data[prefix]['price'] + price
-            user_data[str(callback_query.from_user.id)]['prefix'].append(prefix)
-            print(prefix)
-            save_file('data/users.json', user_data)
-            await callback_query.answer("✅ Вы купили префикс " + prefix + " за " + str(add_thousands_separator(price)) + " b-cash!", show_alert=True)
+            if prefix in user_data[str(callback_query.from_user.id)]['prefix']:
+                await callback_query.answer("✅ Вы уже купили этот префикс!", show_alert=True)
+            else:
+                user_data[str(callback_query.from_user.id)]['Rbalance'] -= price
+                print(price)
+                user_data[str(callback_query.from_user.id)]['prefix'].append(prefix)
+                print(prefix)
+                save_file('data/users.json', user_data)
+                await callback_query.answer(f"""
+➖➖➖➖➖➖
+✅ Успешно!
+
+🔰 Вы купили префикс: {prefix}
+⭐️ Способность: {retranslate_prefix(prefix)}
+
+💸 На вашем балансе: {add_thousands_separator(user_data[str(callback_query.from_user.id)]['Rbalance'])} b-cash
+➖➖➖➖➖➖""", show_alert=True)
 

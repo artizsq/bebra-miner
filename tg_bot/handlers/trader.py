@@ -1,7 +1,7 @@
 from aiogram import types, Bot
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from utils import data
-from utils.data import read_file
+from utils.data import read_file, converter
 from datetime import datetime, timedelta
 from utils.data import add_thousands_separator
 from tg_bot.events import get_bebra_coins
@@ -20,13 +20,15 @@ class Trade(StatesGroup):
 
 class Trader:
     async def trade_button(callback_query: types.CallbackQuery, state: FSMContext):
+        converter(callback_query.from_user.id)
         key = InlineKeyboardBuilder()
         key.button(text="Отменить", callback_data="cancel")
         Bbalance = read_file('data/users.json')[str(callback_query.from_user.id)]['Bbalance']
-        await callback_query.message.edit_text(f"👉 Введите кол-во которое хотите обменять\n\n🪙 У вас на балансе: {round(Bbalance, 8)} BebraCoin'ов", reply_markup=key.as_markup())
+        await callback_query.message.edit_text(f"👉 Введите кол-во которое хотите обменять\n\n🪙 У вас на балансе: {round(Bbalance, 5)} BebraCoin'ов", reply_markup=key.as_markup())
         await state.set_state(Trade.coins)
 
     async def trade_coins(message: types.Message, state: FSMContext):
+        converter(message.from_user.id)
         data = read_file('data/users.json')
 
         key = InlineKeyboardBuilder()

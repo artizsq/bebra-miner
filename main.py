@@ -1,7 +1,7 @@
 from aiogram import Bot, Dispatcher, F, filters, types
 import asyncio
 from utils.parsing import Data
-from tg_bot.exceptions import IsAdmin, CheckUser, CheckIvent, IventShopChecker, CheckCurrentShopMiner, CheckCurrentShopPrefix, CheckPromocode
+from tg_bot.exceptions import IsAdmin, CheckUser, CheckIvent, IventShopChecker, CheckCurrentShopMiner, CheckCurrentShopPrefix, CheckPromocode, CheckMinerCount
 from tg_bot.commands import (start_command, 
                              delete_panel, 
                              farm_command,
@@ -30,6 +30,7 @@ from tg_bot.handlers.shop import ShopMiner, ShopPrefix
 import logging
 from tg_bot.middlewares import SchedulerMiddleware
 from tg_bot.events import update_current_shop, update_rate, update_event
+
 from datetime import datetime, timedelta
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
@@ -94,7 +95,7 @@ async def main():
     dp.callback_query.register(ShopMiner.buy_event_miner, F.data.startswith('ev_'), CheckUser(), IventShopChecker())
 
     # Обработчик нажатия на кнопку "Купить"
-    dp.callback_query.register(ShopMiner.buy_miner, F.data.startswith('b_'), CheckUser())
+    dp.callback_query.register(ShopMiner.buy_miner, F.data.startswith('b_'), CheckUser(), CheckMinerCount())
 
     dp.callback_query.register(ShopMiner.all_shop_miners, F.data.startswith('shop_miners'), CheckUser())
 
@@ -150,6 +151,10 @@ async def main():
     dp.callback_query.register(send_messages_to_users, F.data == "send", IsAdmin())
     dp.message.register(send_message_text, F.text, Admin.message, IsAdmin())
     dp.message.register(send_message_photo, F.photo, Admin.message, IsAdmin())
+
+
+
+    
 
 
     

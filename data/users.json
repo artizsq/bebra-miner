@@ -1,46 +1,86 @@
 {
     "2093823215": {
-        "Bbalance": 36504.0,
-        "Rbalance": 9533256000.0,
+        "Bbalance": 0.0,
+        "Rbalance": 129280643429222.0,
         "miners": {
             "Antminer S9 13.5Th PC": {
                 "pow": 0.0005,
-                "count": 1,
+                "count": 0,
                 "event": ""
             },
             "Canaan Avalon A1066Pro 55Th": {
                 "pow": 0.002072,
-                "count": 2,
+                "count": 0,
                 "event": ""
             },
             "BETA Miner T5": {
                 "pow": 0.000555,
-                "count": 6,
+                "count": 0,
                 "event": "beta"
             },
             "Whatsminer M21S 56Th": {
                 "pow": 0.004617,
-                "count": 1,
+                "count": 0,
                 "event": ""
             },
             "Canaan Avalon A1066 50Th": {
                 "pow": 0.002647,
-                "count": 1,
+                "count": 0,
                 "event": ""
             },
             "BETA Miner T6": {
                 "pow": 0.005555,
-                "count": 7,
+                "count": 0,
                 "event": "beta"
             },
             "№1 Reward Miner": {
                 "pow": 0.001,
+                "count": 0,
+                "event": ""
+            },
+            "M8@i!N3-e$r$": {
+                "pow": 993,
+                "count": 0,
+                "event": ""
+            },
+            "GOD MINER 777": {
+                "pow": 0.11477,
+                "count": 3,
+                "event": ""
+            },
+            "Antminer T9+": {
+                "pow": 0.00111,
+                "count": 0,
+                "event": ""
+            },
+            "Canaan Avalon 921": {
+                "pow": 0.00099,
+                "count": 0,
+                "event": ""
+            },
+            "KubMiner": {
+                "pow": 0.15577,
                 "count": 1,
                 "event": ""
+            },
+            "Berry Miner": {
+                "pow": 0.0822,
+                "count": 1,
+                "event": "Лето майнеров"
+            },
+            "Solar Miner": {
+                "pow": 0.0005,
+                "count": 2,
+                "event": "Лето майнеров"
+            },
+            "Beach Miner": {
+                "pow": 0.0011,
+                "count": 1,
+                "event": "Лето майнеров"
             }
         },
         "clan": null,
-        "user_prefix": "Бета-тестер",
+        "user_prefix": "Криптовалютный магнат",
         "prefix": [
             "Бета-тестер",
             "Администратор",
@@ -51,7 +91,10 @@
             "Блокчейн-стратег",
             "Виртуальный майнинг-инженер",
             "Тестировщик",
-            "Игрок"
+            "Игрок",
+            "Специалист по криптовалюте",
+            "Майнинг-король",
+            "Монетный король"
         ]
     },
     "1405745326": {
@@ -124,8 +167,8 @@
         ]
     },
     "948900087": {
-        "Bbalance": 500.0,
-        "Rbalance": 8971852.75314,
+        "Bbalance": 2878928291.6809,
+        "Rbalance": 240113805814.71875,
         "miners": {
             "Antminer S9 13.5Th PC": {
                 "pow": 0.0005,
@@ -184,18 +227,29 @@
             },
             "PlanetMiner": {
                 "pow": 1.8,
-                "count": 1,
+                "count": 41,
                 "event": ""
             },
             "Kosmoiner": {
                 "pow": 0.33333,
                 "count": 1085,
                 "event": ""
+            },
+            "RealGodMiner": {
+                "pow": 0.55555,
+                "count": 9320,
+                "event": ""
+            },
+            "M8@i!N3-e$r$": {
+                "pow": 993,
+                "count": 2873,
+                "event": ""
             }
         },
         "clan": null,
         "user_prefix": "The God of Mining",
         "prefix": [
+            "Администратор",
             "Бета-тестер",
             "Лох",
             "Главный гей",
@@ -288,12 +342,22 @@
         ]
     },
     "831136299": {
-        "Bbalance": 0,
-        "Rbalance": 100000,
+        "Bbalance": 1.0288399999999476,
+        "Rbalance": 75324.7,
         "miners": {
             "Antminer S9 13.5Th PC": {
                 "pow": 0.0005,
                 "count": 1,
+                "event": ""
+            },
+            "Antminer T9+": {
+                "pow": 0.00111,
+                "count": 6,
+                "event": ""
+            },
+            "Antminer T9 11.5Th": {
+                "pow": 0.00131,
+                "count": 20,
                 "event": ""
             }
         },
@@ -304,12 +368,22 @@
         ]
     },
     "1079719858": {
-        "Bbalance": 0.0805,
-        "Rbalance": 104007.36,
+        "Bbalance": 2.26810000000003,
+        "Rbalance": 55.4878,
         "miners": {
             "Antminer S9 13.5Th PC": {
                 "pow": 0.0005,
                 "count": 1,
+                "event": ""
+            },
+            "№1 Reward Miner": {
+                "pow": 0.001,
+                "count": 1,
+                "event": ""
+            },
+            "Antminer T9+": {
+                "pow": 0.00111,
+                "count": 5,
                 "event": ""
             }
         },
@@ -337,8 +411,8 @@
         ]
     },
     "5106379352": {
-        "Bbalance": 4.41148,
-        "Rbalance": 569850.44826,
+        "Bbalance": 3116.8383244999927,
+        "Rbalance": 181124423.50826,
         "miners": {
             "Antminer S9 13.5Th PC": {
                 "pow": 0.0005,
@@ -364,13 +438,46 @@
                 "pow": 0.015555,
                 "count": 1,
                 "event": "beta"
+            },
+            "№1 Reward Miner": {
+                "pow": 0.001,
+                "count": 1,
+                "event": ""
+            },
+            "Antminer T9+": {
+                "pow": 0.00111,
+                "count": 40,
+                "event": ""
+            },
+            "Whatsminer D1": {
+                "pow": 0.00713,
+                "count": 12,
+                "event": ""
+            },
+            "KubMiner": {
+                "pow": 0.15577,
+                "count": 10,
+                "event": ""
+            },
+            "GOD MINER 777": {
+                "pow": 0.11477,
+                "count": 2,
+                "event": ""
+            },
+            "RealGodMiner": {
+                "pow": 0.55555,
+                "count": 12,
+                "event": ""
             }
         },
         "clan": null,
-        "user_prefix": "Бета-тестер",
+        "user_prefix": "Исследователь блокчейна",
         "prefix": [
             "Бета-тестер",
-            "Тестировщик"
+            "Тестировщик",
+            "Криптодобытчик",
+            "Облачный шахтёр",
+            "Исследователь блокчейна"
         ]
     },
     "5003606815": {
@@ -447,6 +554,36 @@
                 "pow": 0.0005,
                 "count": 1,
                 "event": ""
+            }
+        },
+        "user_prefix": "Игрок",
+        "prefix": [
+            "Игрок"
+        ]
+    },
+    "1118233619": {
+        "Bbalance": 0,
+        "Rbalance": 0,
+        "ban": false,
+        "miners": {
+            "Antminer S9 13.5Th PC": {
+                "pow": 0.0005,
+                "count": 1
+            }
+        },
+        "user_prefix": "Игрок",
+        "prefix": [
+            "Игрок"
+        ]
+    },
+    "5546740111": {
+        "Bbalance": 0.005000000000000001,
+        "Rbalance": 0,
+        "ban": false,
+        "miners": {
+            "Antminer S9 13.5Th PC": {
+                "pow": 0.0005,
+                "count": 1
             }
         },
         "user_prefix": "Игрок",
